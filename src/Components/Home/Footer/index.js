@@ -39,9 +39,9 @@ const Footer = () => {
 				{/* Last part of footer */}
 
 				<ul className="footer-end-links">
-					{footerEndData.map((link) => (
+					{footerEndData.map((link, index) => (
 						<li className="footer-end-link">
-							<a href={link.href}>{link.name}</a>
+							<a href={link.href} key={index}>{link.name}</a>
 						</li>
 					))}
 				</ul>

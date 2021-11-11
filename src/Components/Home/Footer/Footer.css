@@ -3,6 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	min-width: 500px;
 }
 
 .footer-back-to-top {
@@ -125,12 +126,13 @@ li.footer-end-link > a {
 	}
 
 	.footer-bottom {
-		padding: 0;
+
 	}
 	.footer-bottom-links {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
+		/* grid-template-columns: 1fr 1fr 1fr 1fr;
 		padding: 3rem 0rem;
-		margin: 0;
+		margin: 0; */
+		display: none;
 	}
 
 	ul.footer-end-links {
