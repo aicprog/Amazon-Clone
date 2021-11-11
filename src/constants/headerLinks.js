@@ -1,3 +1,5 @@
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+
 export const headerLinks = [
     {
         id: 0,
@@ -21,7 +23,8 @@ export const headerLinks = [
         id: 3,
         topName: "",
         bottomName: "0",
-        icon: "",
+        icon: <ShoppingBasketIcon/>,
+        className: 'header-basket-count',
         href: ''
     }, 
 ]
