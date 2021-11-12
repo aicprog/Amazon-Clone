@@ -1,14 +1,19 @@
 import './App.css';
 import { Footer, Header } from './Components';
-import { HomePage } from './Pages';
+import { HomePage, CheckoutPage } from './Pages';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App() {
 	return (
 		<div className="app">
-			{/* Header */}
-			<Header />
-			{/* Home */}
-			<HomePage />
+			<Router>
+				{/* Header */}
+				<Header />
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path="/checkout" element={<CheckoutPage/>} />
+				</Routes>
+			</Router>
 			{/* Footer */}
 			<Footer />
 		</div>

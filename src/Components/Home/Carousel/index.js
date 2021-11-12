@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { CarouselData } from '../../../constants/carouselData'
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+
 import './Carousel.css'
 
 
@@ -29,47 +29,49 @@ const Carousel = () => {
   }, [index]);
 
     return (
-        <section className="section">
-            <div className="section-center">
-            <button className="prev" onClick={() => setIndex(index - 1)}>
-            <ArrowBackIosIcon className="prev-icon"/>
-            <ArrowBackIosIcon className="prev-icon-alt"/>
-            </button>
+			<section className="section">
+				<div className="section-center">
+					<button className="prev" onClick={() => setIndex(index - 1)}>
+						<BsChevronLeft className="prev-icon" />
+						<BsChevronLeft className="prev-icon-alt" />
+					</button>
 
-            {
-                CarouselData.map((carousel, carouselIndex) => {
-                    const {id, img} = carousel
-                    //assume position is next slide
-                    let position = "nextSlide" 
-                    
-                    //check if current position
-                    if(carouselIndex === index){
-                        position = "activeSlide";
-                    }
-                    //check if it is the last slide
-                    if(carouselIndex === index - 1 || (index === 0 && carouselIndex === slides.length - 1)){ position = "lastSlide"}
-                    
-                    return (
-											<article key={id} className={position}>
-												<img
-													src={img}
-													alt={`slide ${carouselIndex}`}
-													className="slide-img"
-												/>
-												<div className="img-mask" />
-											</article>
-										);
-                })
-            }
+					{CarouselData.map((carousel, carouselIndex) => {
+						const { id, img } = carousel;
+						//assume position is next slide
+						let position = 'nextSlide';
 
-            <button className="next" onClick={() => setIndex(index + 1)}>
-                <ArrowForwardIosIcon className="next-icon"/>
-                <ArrowForwardIosIcon className="next-icon-alt"/>
-            </button>
-            
-            </div>
-        </section>
-    )
+						//check if current position
+						if (carouselIndex === index) {
+							position = 'activeSlide';
+						}
+						//check if it is the last slide
+						if (
+							carouselIndex === index - 1 ||
+							(index === 0 && carouselIndex === slides.length - 1)
+						) {
+							position = 'lastSlide';
+						}
+
+						return (
+							<article key={id} className={position}>
+								<img
+									src={img}
+									alt={`slide ${carouselIndex}`}
+									className="slide-img"
+								/>
+								<div className="img-mask" />
+							</article>
+						);
+					})}
+
+					<button className="next" onClick={() => setIndex(index + 1)}>
+						<BsChevronRight className="next-icon" />
+						<BsChevronRight className="next-icon-alt" />
+					</button>
+				</div>
+			</section>
+		);
 }
 
 export default Carousel

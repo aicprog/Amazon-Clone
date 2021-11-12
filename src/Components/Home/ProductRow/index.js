@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProductRow.css';
-import { Star } from '@mui/icons-material';
+import { AiTwotoneStar } from 'react-icons/ai';
 import { ProductHomePageData } from '../../../constants/productHomePageData';
 
 const ProductRow = () => {
@@ -10,7 +10,7 @@ const ProductRow = () => {
 			{ProductHomePageData.map((row) => (
 				<div key={row.id} className="product-row">
 					{row.products.map((product) => (
-						<Product key={`${row.id}${product.id}`} {...product} />	
+						<Product key={`${row.id}${product.id}`} {...product} />
 					))}
 				</div>
 			))}
@@ -38,14 +38,13 @@ const Product = ({ title, price, img, rating }) => {
 						{Array(rating)
 							.fill(rating)
 							.map((_, i) => (
-								<Star key={i} className="rating-icon" />
+								<AiTwotoneStar key={i} className="rating-icon" />
 							))}
 					</p>
 				</div>
 			</div>
-				<img src={img} alt="" className="product-img" />
-				<button>Add to Cart</button>
-		
+			<img src={img} alt="" className="product-img" />
+			<button>Add to Cart</button>
 		</div>
 	);
 };
