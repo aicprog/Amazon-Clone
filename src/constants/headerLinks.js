@@ -24,7 +24,6 @@ export const headerLinks = [
 		id: 3,
 		topName: '',
 		bottomName: '',
-		iconProp: '0',
 		// icon: <RiShoppingCartLine />,
 		icon: cart,
 		className: 'header-basket-count',

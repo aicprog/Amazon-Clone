@@ -1,8 +1,11 @@
 import React from 'react';
 import { CheckoutBasket, CheckoutSubtotal } from '../../Components';
+import { useProductsContext } from '../../Context/products.context';
 import './CheckoutPage.css';
 
 const CheckoutPage = () => {
+	const {basket} = useProductsContext()
+	console.log(basket)
 	return (
 		<div className="checkout">
 			<div className="checkout-left">

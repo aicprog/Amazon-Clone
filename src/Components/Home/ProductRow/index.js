@@ -2,6 +2,7 @@ import React from 'react';
 import './ProductRow.css';
 import { AiTwotoneStar } from 'react-icons/ai';
 import { ProductHomePageData } from '../../../constants/productHomePageData';
+import { useProductsContext } from '../../../Context/products.context';
 
 const ProductRow = () => {
 	return (
@@ -10,7 +11,7 @@ const ProductRow = () => {
 			{ProductHomePageData.map((row) => (
 				<div key={row.id} className="product-row">
 					{row.products.map((product) => (
-						<Product key={`${row.id}${product.id}`} {...product} />
+						<Product key={`${row.id}${product.id}`} product ={product} />
 					))}
 				</div>
 			))}
@@ -21,7 +22,11 @@ const ProductRow = () => {
 export default ProductRow;
 
 //Product for product row
-const Product = ({ title, price, img, rating }) => {
+const Product = ({ product }) => {
+	const {title, price, img, rating} = product
+
+	const { addToCart } = useProductsContext();
+	
 	return (
 		<div className="product">
 			<div className="products-info-top">
@@ -44,7 +49,7 @@ const Product = ({ title, price, img, rating }) => {
 				</div>
 			</div>
 			<img src={img} alt="" className="product-img" />
-			<button>Add to Cart</button>
+			<button onClick={() => addToCart(product)}>Add to Cart</button>
 		</div>
 	);
 };

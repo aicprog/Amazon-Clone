@@ -4,6 +4,7 @@ import { headerLinks } from '../../../constants/headerLinks';
 import { BiSearch } from 'react-icons/bi';
 import { categories } from '../../../constants/categories';
 import { Link } from 'react-router-dom';
+import { useProductsContext } from '../../../Context/products.context';
 const Header = () => {
 	const searchStyle = {
 		padding: '5px',
@@ -13,6 +14,9 @@ const Header = () => {
 		position: 'absolute',
 		right: 0,
 	};
+
+	const {basket} = useProductsContext()
+
 	return (
 		<div className="header">
 			<div className="header-container">
@@ -55,7 +59,7 @@ const Header = () => {
 
 								<Link to="/checkout">
 									<div className="cart-container">
-										<span className="icon-prop">{link.iconProp}</span>
+										<span className="icon-prop">{basket.length}</span>
 
 										<img className="icon" src={link.icon} alt="" />
 									</div>
