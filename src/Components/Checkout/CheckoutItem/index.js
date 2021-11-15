@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './CheckoutItem.css';
 import prime from '../../../assets/prime.png';
+import { useProductsContext } from '../../../Context/products.context';
 
 const CheckoutItem = ({ product }) => {
-	const { title, img, price } = product;
+	const {id, title, img, price } = product;
 	const [amount, setAmount] = useState(0);
+	const {removeFromCart} = useProductsContext()
 
 	const handleChange = (e) => {
 		setAmount(e.target.value);
@@ -21,14 +23,14 @@ const CheckoutItem = ({ product }) => {
 					<div className="gift-input">
 						<input
 							id="checkbox-gift"
-							class="checkbox-gift"
+							className="checkbox-gift"
 							name="checkbox-gift"
 							type="checkbox"
 						/>
 						<small>This is a gift</small>
 					</div>
 					<div className="product-amount-changes">
-						<div class="product-amount-dropdown">
+						<div className="product-amount-dropdown">
 							{amount === '10+' ? (
 								<div className="amount-input">
 									<input
@@ -43,14 +45,14 @@ const CheckoutItem = ({ product }) => {
 									{Array(9)
 										.fill(9)
 										.map((_, i) => (
-											<option>{i + 1}</option>
+											<option key={i}>{i + 1}</option>
 										))}
 									<option>{10}+</option>
 								</select>
 							)}
 						</div>
 						<span className="vl"></span>
-						<div className="delete-product">
+						<div className="delete-product" onClick={() => removeFromCart(id)}>
 							<span>Delete</span>
 						</div>
 					</div>

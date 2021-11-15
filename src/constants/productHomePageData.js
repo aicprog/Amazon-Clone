@@ -29,14 +29,14 @@ export const ProductHomePageData = [
 		id: 1,
 		products: [
 			{
-				id: 0,
+				id: 3,
 				title: 'Bose Noise Cancelling Headphones 700',
 				img: 'https://m.media-amazon.com/images/I/51ntWa1Q0sL._AC_SX679_.jpg',
 				price: 379.0,
 				rating: 5,
 			},
 			{
-				id: 1,
+				id: 4,
 				title: 'KitchenAid KSM3316XCU Artisan Mini Stand Mixers, 3.5 quart',
 				img: 'https://m.media-amazon.com/images/I/81CkFbzgzLL._AC_SX679_.jpg',
 				price: 239.0,
@@ -48,21 +48,21 @@ export const ProductHomePageData = [
 		id: 2,
 		products: [
 			{
-				id: 0,
+				id: 5,
 				title: 'ChocZero White Chocolate Chips',
 				img: 'https://m.media-amazon.com/images/I/71QDZG6tFrL._SX679_.jpg',
 				price: 8.99,
 				rating: 5,
 			},
 			{
-				id: 1,
+				id: 6,
 				title: 'Fitbit Luxe Fitness and Wellness Tracker',
 				img: 'https://m.media-amazon.com/images/I/61zX3Mzqw-L._AC_SX679_.jpg',
 				price: 129.0,
 				rating: 4,
 			},
 			{
-				id: 2,
+				id: 7,
 				title: 'Amazon Basics Dog and Puppy Pads, 5 Layer',
 				img: 'https://m.media-amazon.com/images/I/81vkislowDL._AC_SX466_.jpg',
 				price: 29.0,

@@ -16,8 +16,8 @@ const Footer = () => {
 					return (
 						<ul className="footer-top-section" key={currentSection.id}>
 							<p>{currentSection.name}</p>
-							{currentSection.data.map((link) => (
-								<li key={link.id} className="footer-top-link">
+							{currentSection.data.map((link, index) => (
+								<li key={index} className="footer-top-link">
 									<a href={link.href}>{link.name}</a>
 								</li>
 							))}
@@ -40,7 +40,7 @@ const Footer = () => {
 
 				<ul className="footer-end-links">
 					{footerEndData.map((link, index) => (
-						<li className="footer-end-link">
+						<li className="footer-end-link" key={index}>
 							<a href={link.href} key={index}>{link.name}</a>
 						</li>
 					))}

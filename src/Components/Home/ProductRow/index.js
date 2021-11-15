@@ -11,7 +11,7 @@ const ProductRow = () => {
 			{ProductHomePageData.map((row) => (
 				<div key={row.id} className="product-row">
 					{row.products.map((product) => (
-						<Product key={`${row.id}${product.id}`} product ={product} />
+						<Product key={product.id} product ={product} />
 					))}
 				</div>
 			))}
@@ -24,7 +24,6 @@ export default ProductRow;
 //Product for product row
 const Product = ({ product }) => {
 	const {title, price, img, rating} = product
-
 	const { addToCart } = useProductsContext();
 	
 	return (
