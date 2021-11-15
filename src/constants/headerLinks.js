@@ -1,4 +1,3 @@
-import {RiShoppingCartLine} from 'react-icons/ri';
 import cart from '../assets/cart2.svg';
 
 export const headerLinks = [
@@ -27,6 +26,7 @@ export const headerLinks = [
 		// icon: <RiShoppingCartLine />,
 		icon: cart,
 		className: 'header-basket-count',
+		prop: 'Cart',
 		href: '',
 	},
 ];

@@ -15,7 +15,7 @@ const Header = () => {
 		right: 0,
 	};
 
-	const {basket} = useProductsContext()
+	const { basket } = useProductsContext();
 
 	return (
 		<div className="header">
@@ -59,9 +59,10 @@ const Header = () => {
 
 								<Link to="/checkout">
 									<div className="cart-container">
-										<span className="icon-prop">{basket.length}</span>
+										<span className="basket-count">{basket?.length}</span>
 
 										<img className="icon" src={link.icon} alt="" />
+										<strong className="cart-name">{link.prop}</strong>
 									</div>
 								</Link>
 							</div>

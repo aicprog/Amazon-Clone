@@ -1,11 +1,38 @@
 .checkout {
 	display: flex;
 	padding: 20px;
-	background-color: #fff;
 	height: max-content;
+	max-width: 1600px;
+	margin: auto;
 }
 
 .checkout-ad {
 	width: 100%;
 	margin-bottom: 10px;
+	background-color: #fff;
+	padding-right: 2rem;
+	min-width: 400px;
+}
+
+.checkout-right {
+	padding-left: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+	.checkout {
+		flex-direction: column;
+		justify-content: center;
+		width: 100vw;
+		/* align-items: center; */
+	}
+
+	.checkout-right {
+		padding-left: 0;
+		padding-right: 0;
+		/* width: 100vw; */
+	}
+
+	.subtotal {
+		width: 100%;
+	}
 }

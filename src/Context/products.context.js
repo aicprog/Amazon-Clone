@@ -10,7 +10,7 @@ const initialState = {
 	basket: [],
 };
 
-export const ProductsProvider = ({ children }) => {
+export const ProductsProvider = (props: { children?: React.ReactChild }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	const addToCart = (product) => {
@@ -19,7 +19,7 @@ export const ProductsProvider = ({ children }) => {
 
 	return (
 		<ProductsContext.Provider value={{ ...state, addToCart }}>
-			{children}
+			{props.children}
 		</ProductsContext.Provider>
 	);
 };
