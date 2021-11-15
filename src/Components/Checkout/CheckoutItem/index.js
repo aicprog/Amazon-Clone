@@ -1,16 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CheckoutItem.css';
 import prime from '../../../assets/prime.png';
 import { useProductsContext } from '../../../Context/products.context';
 
 const CheckoutItem = ({ product }) => {
-	const {id, title, img, price } = product;
-	const [amount, setAmount] = useState(0);
-	const {removeFromCart} = useProductsContext()
+	const { id, title, img, price, amount } = product;
+	const [currentAmount, setCurrentAmount] = useState(amount);
+	const [amountAboveTen, setAmountAboveTen] = useState(false)
+	const { removeFromCart, toggleProductAmount } = useProductsContext();
+
+	console.log(amount)
 
 	const handleChange = (e) => {
-		setAmount(e.target.value);
+		
+		const amount = e.target.value;
+		setCurrentAmount(amount);
+		// console.log('HANEL', amount);
+
+		if(amount < 10){
+			toggleProductAmount(id, amount);
+		}
+		else{
+			setAmountAboveTen(true)
+		}
+
+		// setCurrentAmount(amount);
+		
 	};
+	const handleSubmit = (e) => {
+		console.log(currentAmount)
+		e.preventDefault();
+		toggleProductAmount(id, currentAmount);
+	};
+
+	useEffect(() => {
+		if(amount > 10){
+			setAmountAboveTen(true)
+		};
+	}, [amount]);
 
 	return (
 		<div className="checkout-item-container">
@@ -31,23 +58,35 @@ const CheckoutItem = ({ product }) => {
 					</div>
 					<div className="product-amount-changes">
 						<div className="product-amount-dropdown">
-							{amount === '10+' ? (
-								<div className="amount-input">
+							{amountAboveTen ? (
+								<form className="amount-input">
 									<input
 										type="text"
 										className="custom-amount-input"
 										placeholder="amount"
+										value={currentAmount}
+										onChange={handleChange}
 									/>
-									<button className="custom-amount-button">Update</button>
-								</div>
+									<button
+										className="custom-amount-button"
+										type="submit"
+										onClick={handleSubmit}
+									>
+										Update
+									</button>
+								</form>
 							) : (
-								<select onChange={handleChange} className="quantity-dropdown">
+								<select
+									value={currentAmount}
+									className="quantity-dropdown"
+									onChange={handleChange}
+								>
 									{Array(9)
 										.fill(9)
 										.map((_, i) => (
 											<option key={i}>{i + 1}</option>
 										))}
-									<option>{10}+</option>
+									<option value={10}>10+</option>
 								</select>
 							)}
 						</div>

@@ -1,5 +1,9 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
-import { ADD_TO_CART, DELETE_FROM_CART } from '../actions.js';
+import {
+	ADD_TO_CART,
+	DELETE_FROM_CART,
+	TOGGLE_PRODUCT_AMOUNT,
+} from '../actions.js';
 import reducer from '../Reducer/products.reducer.js';
 
 //create context
@@ -15,7 +19,6 @@ const getLocalStorage = () => {
 		return [];
 	}
 };
-
 
 //initial state
 const initialState = {
@@ -35,9 +38,12 @@ export const ProductsProvider = (props: { children?: React.ReactChild }) => {
 	const removeFromCart = (id) => {
 		dispatch({ type: DELETE_FROM_CART, payload: id });
 	};
+	const toggleProductAmount = (id, amount) => {
+		dispatch({ type: TOGGLE_PRODUCT_AMOUNT, payload: { id, amount } });
+	};
 
 	return (
-		<ProductsContext.Provider value={{ ...state, addToCart, removeFromCart }}>
+		<ProductsContext.Provider value={{ ...state, addToCart, removeFromCart, toggleProductAmount }}>
 			{props.children}
 		</ProductsContext.Provider>
 	);

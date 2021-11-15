@@ -54,6 +54,15 @@
 	align-items: center;
 }
 
+.custom-amount-button{
+	cursor: pointer;
+}
+
+.custom-amount-button:hover {
+	cursor: pointer;
+	background-color: #f0cb16;
+}
+
 .delete-product {
 	color: #0066c0;
 	cursor: pointer;
