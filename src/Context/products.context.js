@@ -3,6 +3,7 @@ import {
 	ADD_TO_CART,
 	DELETE_FROM_CART,
 	TOGGLE_PRODUCT_AMOUNT,
+	GET_TOTAL_CART_QUANTITY,
 } from '../actions.js';
 import reducer from '../Reducer/products.reducer.js';
 
@@ -23,12 +24,15 @@ const getLocalStorage = () => {
 //initial state
 const initialState = {
 	cart: getLocalStorage(),
+	totalCartQuantity: 0, 
+	totalAmount: 0,
 };
 
 export const ProductsProvider = (props: { children?: React.ReactChild }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	useEffect(() => {
+		dispatch({ type: GET_TOTAL_CART_QUANTITY });
 		localStorage.setItem('cart', JSON.stringify(state.cart));
 	}, [state.cart]);
 
@@ -42,8 +46,21 @@ export const ProductsProvider = (props: { children?: React.ReactChild }) => {
 		dispatch({ type: TOGGLE_PRODUCT_AMOUNT, payload: { id, amount } });
 	};
 
+	//get total amount
+	const getTotalCartQuantity = () =>{
+		dispatch({ type: GET_TOTAL_CART_QUANTITY });
+	}
+
 	return (
-		<ProductsContext.Provider value={{ ...state, addToCart, removeFromCart, toggleProductAmount }}>
+		<ProductsContext.Provider
+			value={{
+				...state,
+				addToCart,
+				removeFromCart,
+				toggleProductAmount,
+				getTotalCartQuantity,
+			}}
+		>
 			{props.children}
 		</ProductsContext.Provider>
 	);

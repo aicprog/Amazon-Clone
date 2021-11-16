@@ -5,7 +5,7 @@ import './CheckoutBasket.css';
 
 const CheckoutBasket = () => {
 	const { cart } = useProductsContext();
-	console.log(cart)
+
 	return (
 		<div className="checkout-basket-container">
 			<h2 className="checkout-title">Your Shopping Basket</h2>

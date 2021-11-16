@@ -48,7 +48,7 @@ const Product = ({ product }) => {
 				</div>
 			</div>
 			<img src={img} alt="" className="product-img" />
-			<button onClick={() => addToCart(product)}>Add to Cart</button>
+			<button onClick={() => addToCart({...product, amount: 1})}>Add to Cart</button>
 		</div>
 	);
 };

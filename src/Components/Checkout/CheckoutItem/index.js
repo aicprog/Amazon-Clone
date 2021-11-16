@@ -6,37 +6,37 @@ import { useProductsContext } from '../../../Context/products.context';
 const CheckoutItem = ({ product }) => {
 	const { id, title, img, price, amount } = product;
 	const [currentAmount, setCurrentAmount] = useState(amount);
-	const [amountAboveTen, setAmountAboveTen] = useState(false)
+	const [amountAboveTen, setAmountAboveTen] = useState(false);
 	const { removeFromCart, toggleProductAmount } = useProductsContext();
 
-	console.log(amount)
-
 	const handleChange = (e) => {
-		
-		const amount = e.target.value;
-		setCurrentAmount(amount);
+		const newAmount = e.target.value;
+		setCurrentAmount(newAmount);
+
 		// console.log('HANEL', amount);
 
-		if(amount < 10){
-			toggleProductAmount(id, amount);
-		}
-		else{
-			setAmountAboveTen(true)
+		if (amount < 10) {
+			console.log('HELO', amount);
+			toggleProductAmount(id, newAmount);
+		} else {
+			setAmountAboveTen(true);
 		}
 
 		// setCurrentAmount(amount);
-		
 	};
 	const handleSubmit = (e) => {
-		console.log(currentAmount)
+		// console.log("HELO", currentAmount);
 		e.preventDefault();
-		toggleProductAmount(id, currentAmount);
+		if(currentAmount){
+			toggleProductAmount(id, currentAmount);
+		}
+		
 	};
 
 	useEffect(() => {
-		if(amount > 10){
-			setAmountAboveTen(true)
-		};
+		if (amount >= 10) {
+			setAmountAboveTen(true);
+		}
 	}, [amount]);
 
 	return (
@@ -98,7 +98,7 @@ const CheckoutItem = ({ product }) => {
 				</div>
 			</div>
 			<div className="price">
-				<strong>{price}</strong>
+				<strong>{Math.round(price * amount * 100)/100}</strong>
 			</div>
 		</div>
 	);

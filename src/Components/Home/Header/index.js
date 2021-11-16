@@ -6,16 +6,10 @@ import { categories } from '../../../constants/categories';
 import { Link } from 'react-router-dom';
 import { useProductsContext } from '../../../Context/products.context';
 const Header = () => {
-	const searchStyle = {
-		padding: '5px',
-		height: '38.5px !important',
-		backgroundColor: '#cd9042',
-		borderRadius: '0 5px 5px 0',
-		position: 'absolute',
-		right: 0,
-	};
 
-	const { cart } = useProductsContext();
+
+	const { totalCartQuantity} = useProductsContext();
+
 
 	return (
 		<div className="header">
@@ -59,7 +53,7 @@ const Header = () => {
 
 								<Link to="/checkout">
 									<div className="cart-container">
-										<span className="basket-count">{cart?.length}</span>
+										<span className="basket-count">{totalCartQuantity}</span>
 
 										<img className="icon" src={link.icon} alt="" />
 										<strong className="cart-name">{link.prop}</strong>
