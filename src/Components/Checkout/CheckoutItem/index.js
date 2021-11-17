@@ -98,7 +98,7 @@ const CheckoutItem = ({ product }) => {
 				</div>
 			</div>
 			<div className="price">
-				<strong>{Math.round(price * amount * 100)/100}</strong>
+				<strong>${Math.round(price * amount * 100)/100}</strong>
 			</div>
 		</div>
 	);

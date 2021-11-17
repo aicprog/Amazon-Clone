@@ -6,10 +6,7 @@ import { categories } from '../../../constants/categories';
 import { Link } from 'react-router-dom';
 import { useProductsContext } from '../../../Context/products.context';
 const Header = () => {
-
-
-	const { totalCartQuantity} = useProductsContext();
-
+	const { totalCartQuantity } = useProductsContext();
 
 	return (
 		<div className="header">
@@ -36,7 +33,8 @@ const Header = () => {
 					{/* Right: Header Options */}
 					<div className="header-nav">
 						{headerLinks.map((link) => (
-							<div
+							<Link
+								to={link.href}
 								key={link.id}
 								className={`${
 									link.icon ? 'header-option-icon' : 'header-option'
@@ -51,15 +49,13 @@ const Header = () => {
 									{link.bottomName}
 								</span>
 
-								<Link to="/checkout">
-									<div className="cart-container">
-										<span className="basket-count">{totalCartQuantity}</span>
+								<div className="cart-container">
+									<span className="basket-count">{totalCartQuantity}</span>
 
-										<img className="icon" src={link.icon} alt="" />
-										<strong className="cart-name">{link.prop}</strong>
-									</div>
-								</Link>
-							</div>
+									<img className="icon" src={link.icon} alt="" />
+									<strong className="cart-name">{link.prop}</strong>
+								</div>
+							</Link>
 						))}
 					</div>
 				</div>

@@ -5,7 +5,7 @@ export const headerLinks = [
 		id: 0,
 		topName: 'Hello',
 		bottomName: 'Sign in',
-		href: '',
+		href: '/login',
 	},
 	{
 		id: 1,
@@ -27,6 +27,6 @@ export const headerLinks = [
 		icon: cart,
 		className: 'header-basket-count',
 		prop: 'Cart',
-		href: '',
+		href: '/checkout',
 	},
 ];

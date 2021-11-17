@@ -8,7 +8,7 @@ const CheckoutBasket = () => {
 
 	return (
 		<div className="checkout-basket-container">
-			<h2 className="checkout-title">Your Shopping Basket</h2>
+			<h2 className="checkout-title">Your Shopping Bag</h2>
 
 			<div className="columns">Price</div>
 			<hr />
