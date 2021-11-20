@@ -5,8 +5,15 @@ import { BiSearch } from 'react-icons/bi';
 import { categories } from '../../../constants/categories';
 import { Link } from 'react-router-dom';
 import { useProductsContext } from '../../../Context/products.context';
-const Header = () => {
+import { withRouter } from '../../../CustomHooks/withRouter';
+
+const Header = (props) => {
 	const { totalCartQuantity } = useProductsContext();
+	const path = props.location.pathname;
+
+	if (path === '/login' || path === '/signup') {
+		return <></>;
+	}
 
 	return (
 		<div className="header">
@@ -76,4 +83,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default withRouter(Header);

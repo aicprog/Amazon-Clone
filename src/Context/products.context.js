@@ -28,7 +28,7 @@ const initialState = {
 	totalAmount: 0,
 };
 
-export const ProductsProvider = (props: { children?: React.ReactChild }) => {
+export const ProductsProvider = ({children}) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	useEffect(() => {
@@ -61,7 +61,7 @@ export const ProductsProvider = (props: { children?: React.ReactChild }) => {
 				getTotalCartQuantity,
 			}}
 		>
-			{props.children}
+			{children}
 		</ProductsContext.Provider>
 	);
 };

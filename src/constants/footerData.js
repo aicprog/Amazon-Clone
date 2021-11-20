@@ -168,3 +168,9 @@ export const footerEndData = [
 	{ id: 3, name: ' © 1996-2021, Amazon.com, Inc. or its affiliates', href: '/' },
 
 ]
+export const loginFooterData = [
+	{ id: 0, name: 'Conditions of Use', href: '/' },
+	{ id: 1, name: 'Privacy Notice', href: '/' },
+	{ id: 2, name: 'Help', href: '/' },
+
+]
