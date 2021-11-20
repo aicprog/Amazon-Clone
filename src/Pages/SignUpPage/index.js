@@ -3,20 +3,22 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/amazon-logo.svg';
 import { useUserContext } from '../../Context/user.context';
 import './SignUpPage.css';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpPage = () => {
+	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [confirmPassword, setConfirmPassword] = useState('');
 	const [showWarning, setShowWarning] = useState(false);
+	const navigate = useNavigate();
 
 	const { createUser } = useUserContext();
 
 	const handleSignUp = (e) => {
 		e.preventDefault();
-		if (password === confirmPassword && password && confirmPassword) {
-			createUser(email, password);
+		if (name && password && email) {
 			setShowWarning(false);
+			createUser(name, email, password).then(navigate('/'));
 		} else {
 			setShowWarning(true);
 		}
@@ -27,15 +29,14 @@ const SignUpPage = () => {
 		const value = e.target.value;
 
 		switch (type) {
+			case 'name':
+				setName(value);
+				break;
 			case 'email':
 				setEmail(value);
 				break;
 			case 'password':
 				setPassword(value);
-				break;
-			case 'confirmPassword':
-				setConfirmPassword(value);
-
 				break;
 			default:
 				break;
@@ -52,6 +53,13 @@ const SignUpPage = () => {
 				<div className="form-container">
 					<h1>Create account</h1>
 					<form className="login-form">
+						<strong>Name</strong>
+						<input
+							name="name"
+							type="text"
+							value={name}
+							onChange={handleChange}
+						/>
 						<strong>Email</strong>
 						<input
 							name="email"
@@ -66,15 +74,8 @@ const SignUpPage = () => {
 							value={password}
 							onChange={handleChange}
 						/>
-						<strong>Re-enter password</strong>
-						<input
-							name="confirmPassword"
-							type="password"
-							value={confirmPassword}
-							onChange={handleChange}
-						/>
 						{showWarning && (
-							<small className="no-match">Passwords must match!</small>
+							<small className="no-match">Please enter all inputs!</small>
 						)}
 						<button className="sign-in-btn" onClick={handleSignUp}>
 							Sign In
