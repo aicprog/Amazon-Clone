@@ -32,14 +32,19 @@
 	align-items: center;
 	border-radius: 24px;
 	position: relative;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	
+
 }
 
 .header-search-input {
 	height: 14px;
-	padding: 14px;
+	padding: 18px;
 	border: none;
 	width: 100%;
 	border-radius: 5px;
+	
 }
 
 /* .header-search-icon {
@@ -53,11 +58,11 @@
 
 div.header-search > svg {
 	padding: 5px;
-	height: 28.5px !important;
+	height: 36px !important;
 	background-color: #febd69;
 	border-radius: 0 5px 5px 0;
 	position: absolute;
-	right: 0;
+	right: 1rem;
 	font-size: 2rem;
 }
 div.header-search > svg:hover {
@@ -68,13 +73,15 @@ div.header-search > svg:hover {
 .header-option {
 	cursor: pointer;
 	padding: 0 0.5rem;
+	font-weight: 400;
+	line-height: 14px;
 }
 
 .header-option-one {
-	font-size: 10px;
+	font-size: 11px;
 }
 .header-option-two {
-	font-size: 13px;
+	font-size: 14px;
 	font-weight: 800;
 }
 
@@ -89,7 +96,7 @@ div.header-search > svg:hover {
 }
 
 .cart-container {
-	width: 60px;
+	width: 80px;
 	margin-left: 1rem;
 }
 
@@ -100,15 +107,15 @@ div.header-search > svg:hover {
 	transform: scale(-1, 1);
 	transform-origin: center;
 }
-.basket-count{
+.basket-count {
 	position: absolute;
 	font-size: 12px;
-	top: -35px;
+	top: -34px;
 	/*left: 13%; */
 	margin-left: auto;
 	margin-right: auto;
-	left: -25px;
-	right: 25px;
+	left: -35px;
+	right: 35px;
 	text-align: center;
 	color: #f08804;
 	font-weight: 700;
@@ -116,12 +123,13 @@ div.header-search > svg:hover {
 	letter-spacing: -1px;
 }
 
-
 .cart-name {
 	position: absolute;
-	right: 10px;
-	top: -25px;
+	right: 35px;
+	top: -18px;
 	color: #fff;
+	font-size: 14px;
+	font-weight: 800;
 }
 
 .header-nav {

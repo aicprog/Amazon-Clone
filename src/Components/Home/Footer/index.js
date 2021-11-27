@@ -1,8 +1,19 @@
 import React from 'react';
 import './Footer.css';
-import { topFooterData, bottomFooterData, footerEndData } from '../../../constants/footerData';
-const Footer = () => {
+import {
+	topFooterData,
+	bottomFooterData,
+	footerEndData,
+} from '../../../constants/footerData';
+import { withRouter } from '../../../CustomHooks/withRouter';
+
+const Footer = (props) => {
 	const topFooterSections = Object.keys(topFooterData[0]);
+	const path = props.location.pathname;
+
+	if (path === '/login' || path === '/signup') {
+		return <></>;
+	}
 
 	return (
 		<div className="footer-container">
@@ -41,7 +52,9 @@ const Footer = () => {
 				<ul className="footer-end-links">
 					{footerEndData.map((link, index) => (
 						<li className="footer-end-link" key={index}>
-							<a href={link.href} key={index}>{link.name}</a>
+							<a href={link.href} key={index}>
+								{link.name}
+							</a>
 						</li>
 					))}
 				</ul>
@@ -50,4 +63,4 @@ const Footer = () => {
 	);
 };
 
-export default Footer;
+export default withRouter(Footer);

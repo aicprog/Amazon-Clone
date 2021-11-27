@@ -6,9 +6,11 @@ import { categories } from '../../../constants/categories';
 import { Link } from 'react-router-dom';
 import { useProductsContext } from '../../../Context/products.context';
 import { withRouter } from '../../../CustomHooks/withRouter';
+import { useUserContext } from '../../../Context/user.context';
 
 const Header = (props) => {
 	const { totalCartQuantity } = useProductsContext();
+	const { currentUser, signOut } = useUserContext();
 	const path = props.location.pathname;
 
 	if (path === '/login' || path === '/signup') {
@@ -37,6 +39,25 @@ const Header = (props) => {
 						<BiSearch />
 					</div>
 
+					<Link
+						to={`${currentUser?.displayName ? '/' : '/login'}`}
+						className="header-option"
+					>
+						<span className="header-option-one">
+							{`Hello ${
+								currentUser?.displayName ? currentUser.displayName : 'Guest'
+							}`}
+						</span>
+
+						<span className={`header-option-two`}>
+							{currentUser?.displayName ? (
+								<span onClick={signOut}>Sign Out</span>
+							) : (
+								<span>Sign In </span>
+							)}
+						</span>
+					</Link>
+
 					{/* Right: Header Options */}
 					<div className="header-nav">
 						{headerLinks.map((link) => (
@@ -47,15 +68,13 @@ const Header = (props) => {
 									link.icon ? 'header-option-icon' : 'header-option'
 								}`}
 							>
-								<span className="header-option-one">
-									{link.topName}
-									{link.topName === 'Hello' && ' Guest'}
-								</span>
+								<span className="header-option-one">{link.topName}</span>
 
-								<span className={`${link.className} header-option-two`}>
+								<span className={`header-option-two`}>
 									{link.bottomName}
 								</span>
 
+								{/* For cart icon */}
 								<div className="cart-container">
 									<span className="basket-count">{totalCartQuantity}</span>
 

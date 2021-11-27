@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/amazon-logo.svg';
 import { useUserContext } from '../../Context/user.context';
 import './SignUpPage.css';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import useNavigation from '../../CustomHooks/useNavigation'
 
 const SignUpPage = () => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [showWarning, setShowWarning] = useState(false);
-	const navigate = useNavigate();
+	const navigator = useNavigation()
+	// const navigate = useNavigate();
 
 	const { createUser } = useUserContext();
 
@@ -18,7 +20,7 @@ const SignUpPage = () => {
 		e.preventDefault();
 		if (name && password && email) {
 			setShowWarning(false);
-			createUser(name, email, password).then(navigate('/'));
+			createUser(name, email, password).then(navigator.goTo('/'));
 		} else {
 			setShowWarning(true);
 		}

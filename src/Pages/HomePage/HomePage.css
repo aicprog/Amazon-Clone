@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 600px) {
-	.home{
+	.home {
 		overflow-x: scroll;
 		margin: 0;
 		padding: 0;

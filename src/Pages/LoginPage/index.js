@@ -1,12 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/amazon-logo.svg';
 import { loginFooterData } from '../../constants/footerData';
+import { useUserContext } from '../../Context/user.context';
 import './LoginPage.css';
+import useNavigation from '../../CustomHooks/useNavigation';
 
 const LoginPage = () => {
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+
+	const { signInUser, loggedIn } = useUserContext();
+	const navigate = useNavigation();
+
+	const handleChange = (e) => {
+		const type = e.target.name;
+		const value = e.target.value;
+
+		if (type === 'email') {
+			setEmail(value);
+		} else if (type === 'password') {
+			setPassword(value);
+		}
+	};
+
 	const handleSignIn = (e) => {
 		e.preventDefault();
+		signInUser(email, password).then((auth) => {
+			if (auth) {
+				navigate.goTo('/');
+			}
+		});
 	};
 
 	return (
@@ -20,9 +44,19 @@ const LoginPage = () => {
 					<h1>Sign-In</h1>
 					<form className="login-form">
 						<strong>E-mail</strong>
-						<input type="text" />
+						<input
+							name="email"
+							type="text"
+							value={email}
+							onChange={handleChange}
+						/>
 						<strong>Password</strong>
-						<input type="password" />
+						<input
+							name="password"
+							type="password"
+							value={password}
+							onChange={handleChange}
+						/>
 						<button className="sign-in-btn" onClick={handleSignIn}>
 							Sign In
 						</button>
