@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Loader from './Loader';
+import { Loader } from '..';
 
 const withLoading = (WrappedComponent, loadingMessage) => {
 	function HOC(props) {
@@ -7,7 +7,7 @@ const withLoading = (WrappedComponent, loadingMessage) => {
 		const setLoadingState = (isComponentLoading) => {
 			setLoading(isComponentLoading);
 		};
-		console.log('isLoading', isLoading);
+		console.log('isLoading', isLoading);			
 		return (
 			<>
 				{isLoading && <Loader message={loadingMessage} />}

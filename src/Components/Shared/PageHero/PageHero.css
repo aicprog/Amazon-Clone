@@ -1,0 +1,20 @@
+.pagehero-wrapper {
+	max-width: 1500px;
+}
+
+.pagehero-inner {
+	font-size: 14px;
+}
+
+.pagehero-link {
+	color: rgb(0, 113, 133);
+	text-decoration: none;
+}
+
+.pagehero-arrow {
+	margin: 0px 0.3rem;
+}
+
+.pagehero-title {
+	color: #c45500;
+}

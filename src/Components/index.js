@@ -8,3 +8,6 @@ export { default as ProductRow } from './Home/ProductRow';
 export { default as CheckoutBasket } from './Checkout/CheckoutBasket';
 export { default as CheckoutItem } from './Checkout/CheckoutItem';
 export { default as CheckoutSubtotal } from './Checkout/CheckoutSubtotal';
+
+//Shared
+export { default as Loader } from './Shared/Loader';
