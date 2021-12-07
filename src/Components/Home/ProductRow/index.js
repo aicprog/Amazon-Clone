@@ -7,8 +7,7 @@ const ProductRow = () => {
 	const { products, products_loading } = useProductsContext();
 	const array = [2, 1, 3];
 
-	console.log('Loading', products_loading);
-	console.log('Products', products);
+
 
 	let item = 1;
 

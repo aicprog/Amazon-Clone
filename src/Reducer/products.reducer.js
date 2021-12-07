@@ -5,6 +5,7 @@ import {
 	GET_TOTAL_CART_QUANTITY,
 	GET_PRODUCT_SUCCESS,
 	GET_PRODUCTS_BEGIN,
+	GET_CATEGORY_SUCCESS,
 } from '../actions';
 
 const products_reducer = (state, action) => {
@@ -14,6 +15,13 @@ const products_reducer = (state, action) => {
 			return { ...state, products_loading: true };
 		case GET_PRODUCT_SUCCESS:
 			return { ...state, products: action.payload, products_loading: false };
+
+		case GET_CATEGORY_SUCCESS:
+			return {
+				...state,
+				category_items: action.payload,
+				products_loading: false,
+			};
 
 		case ADD_TO_CART:
 			//check if item already exists

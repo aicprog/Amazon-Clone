@@ -14,16 +14,16 @@ export const categories = [
 	{
 		id: 2,
 		name: 'Jewelry',
-		href: '/categories/jewelry',
+		href: '/categories/jewelery',
 	},
 	{
 		id: 3,
 		name: "Men's Clothing",
-		href: '/categories/mens',
+		href: "/categories/men's clothing",
 	},
 	{
 		id: 4,
 		name: "Women's Clothing",
-		href: '/categories/womens',
+		href: "/categories/women's clothing",
 	},
 ];

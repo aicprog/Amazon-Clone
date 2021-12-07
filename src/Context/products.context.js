@@ -6,6 +6,7 @@ import {
 	GET_TOTAL_CART_QUANTITY,
 	GET_PRODUCT_SUCCESS,
 	GET_PRODUCTS_BEGIN,
+	GET_CATEGORY_SUCCESS,
 } from '../actions.js';
 import reducer from '../Reducer/products.reducer.js';
 import axios from 'axios';
@@ -28,6 +29,7 @@ const getLocalStorage = () => {
 const initialState = {
 	products: [],
 	products_loading: false,
+	category_items: [],
 	cart: getLocalStorage(),
 	totalCartQuantity: 0,
 	totalAmount: 0,
@@ -35,17 +37,30 @@ const initialState = {
 
 const ProductsProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
+	let baseURL = 'https://fakestoreapi.com/products';
 	//fetch products
-	const fetchProducts = async (url = 'https://fakestoreapi.com/products') => {
+	const fetchProducts = async (url = `${baseURL}`) => {
 		dispatch({ type: GET_PRODUCTS_BEGIN });
 		try {
 			const response = await axios.get(url);
 			const products = response.data;
 			dispatch({ type: GET_PRODUCT_SUCCESS, payload: products });
-			return response
 		} catch (error) {
 			console.log(error);
-			return error
+			return error;
+		}
+	};
+
+	const fetchCategory = async (category) => {
+		const categoryUrl = `${baseURL}/category/${category}`;
+		dispatch({ type: GET_PRODUCTS_BEGIN });
+		try {
+			const response = await axios.get(categoryUrl);
+			const products = response.data;
+			dispatch({ type: GET_CATEGORY_SUCCESS, payload: products });
+		} catch (error) {
+			console.log(error);
+			return error;
 		}
 	};
 
@@ -56,7 +71,7 @@ const ProductsProvider = ({ children }) => {
 
 	useEffect(() => {
 		fetchProducts();
-	}, [])
+	}, []);
 
 	const addToCart = (product) => {
 		dispatch({ type: ADD_TO_CART, payload: product });
@@ -82,6 +97,7 @@ const ProductsProvider = ({ children }) => {
 				toggleProductAmount,
 				getTotalCartQuantity,
 				fetchProducts,
+				fetchCategory,
 			}}
 		>
 			{children}
