@@ -3,12 +3,17 @@ import {
 	DELETE_FROM_CART,
 	TOGGLE_PRODUCT_AMOUNT,
 	GET_TOTAL_CART_QUANTITY,
+	GET_PRODUCT_SUCCESS,
+	GET_PRODUCTS_BEGIN,
 } from '../actions';
 
 const products_reducer = (state, action) => {
 	let tempCart = [];
 	switch (action.type) {
-		//see if item already exists
+		case GET_PRODUCTS_BEGIN:
+			return { ...state, products_loading: true };
+		case GET_PRODUCT_SUCCESS:
+			return { ...state, products: action.payload, products_loading: false };
 
 		case ADD_TO_CART:
 			//check if item already exists
@@ -23,7 +28,7 @@ const products_reducer = (state, action) => {
 						// totalItems += newProductQuanitity;
 						return {
 							...product,
-							amount: parseInt(product.amount) + parseInt(newProductQuanitity),
+							amount: parseInt(product.amount) + newProductQuanitity,
 						};
 					} else {
 						return product;

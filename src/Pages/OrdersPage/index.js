@@ -1,15 +1,36 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import OrderCard from '../../Components/Shared/OrderCard';
 import PageHero from '../../Components/Shared/PageHero';
+import { useUserContext } from '../../Context/user.context';
 import './OrdersPage.css';
 
 const OrdersPage = () => {
+	const { currentUser } = useUserContext();
+
 	const columns = [
 		'Orders',
 		'Buy Again',
 		'Not Yet Shipped',
 		'Cancelled Orders',
 	];
+
+	if (!currentUser) {
+		return (
+			<div className="orders-page-wrapper">
+				<PageHero title="Your Orders" />
+				<div className="instruct-login">
+					<p className="title-not-loggedin">
+						Looks like you are not signed in...
+					</p>
+					<p className="title-not-loggedin">
+						<Link to="/login" className="orders-return-home"> Sign in </Link> &nbsp;to see your orders.
+					</p>
+				</div>
+			</div>  
+		);
+	}
+
 	return (
 		<div className="orders-page-wrapper">
 			<PageHero title="Your Orders" />

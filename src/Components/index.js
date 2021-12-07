@@ -11,3 +11,4 @@ export { default as CheckoutSubtotal } from './Checkout/CheckoutSubtotal';
 
 //Shared
 export { default as Loader } from './Shared/Loader';
+export { default as Product } from './Shared/Product';

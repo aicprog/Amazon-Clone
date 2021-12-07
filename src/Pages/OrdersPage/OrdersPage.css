@@ -5,6 +5,24 @@
 	margin: 0 auto;
 }
 
+.title-not-loggedin {
+	display: flex;
+	justify-content: center;
+	color: #576161;
+	padding: 0rem 4rem 0rem 4rem;
+	text-align: center;
+	font-weight: 400;
+	font-size: 20px;
+}
+
+.orders-return-home {
+	color: #007185;
+}
+
+.instruct-login {
+	padding-top: 3rem;
+}
+
 .orders-title {
 	font-weight: 400;
 }

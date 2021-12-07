@@ -70,9 +70,7 @@ const Header = (props) => {
 							>
 								<span className="header-option-one">{link.topName}</span>
 
-								<span className={`header-option-two`}>
-									{link.bottomName}
-								</span>
+								<span className={`header-option-two`}>{link.bottomName}</span>
 
 								{/* For cart icon */}
 								<div className="cart-container">
@@ -90,10 +88,14 @@ const Header = (props) => {
 				<div className="header-bottom">
 					<div className="header-categories">
 						{categories.map((category) => (
-							<div className="header-category-item" key={category.id}>
+							<Link
+								to={category.href}
+								key={category.id}
+								className="header-category-item"
+							>
 								<div className="header-menu-icon">{category.icon}</div>
 								<div className="category">{category.name}</div>
-							</div>
+							</Link>
 						))}
 					</div>
 				</div>

@@ -1,12 +1,14 @@
 .checkout-basket-container {
 	background-color: #fff;
 	padding: 1rem;
-
 }
 
 .checkout-title {
 	margin-right: 10px;
 	padding: 10px;
+	font-weight: 500;
+	font-size: 28px;
+	line-height: 36px;
 	/* border-bottom: 1px solid lightgray; */
 }
 

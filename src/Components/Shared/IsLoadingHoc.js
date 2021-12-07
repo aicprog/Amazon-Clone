@@ -7,11 +7,15 @@ const withLoading = (WrappedComponent, loadingMessage) => {
 		const setLoadingState = (isComponentLoading) => {
 			setLoading(isComponentLoading);
 		};
-		console.log('isLoading', isLoading);			
+
 		return (
 			<>
 				{isLoading && <Loader message={loadingMessage} />}
-				<WrappedComponent {...props} setLoading={setLoadingState} />
+				<WrappedComponent
+					{...props}
+					setLoading={setLoadingState}
+					isLoading={isLoading}
+				/>
 			</>
 		);
 	}

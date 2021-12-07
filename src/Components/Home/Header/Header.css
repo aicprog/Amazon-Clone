@@ -34,8 +34,6 @@
 	position: relative;
 	padding-left: 1rem;
 	padding-right: 1rem;
-	
-
 }
 
 .header-search-input {
@@ -44,7 +42,6 @@
 	border: none;
 	width: 100%;
 	border-radius: 5px;
-	
 }
 
 /* .header-search-icon {
@@ -164,6 +161,7 @@ div.header-search > svg:hover {
 	font-size: 14px;
 	line-height: 1em;
 	font-weight: 700;
+	cursor: pointer;
 }
 
 .header-category-item {
@@ -171,6 +169,7 @@ div.header-search > svg:hover {
 	justify-content: center;
 	align-items: center;
 	padding-right: 2rem;
+	color: White;
 }
 
 .header-menu-icon svg {

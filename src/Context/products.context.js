@@ -4,8 +4,11 @@ import {
 	DELETE_FROM_CART,
 	TOGGLE_PRODUCT_AMOUNT,
 	GET_TOTAL_CART_QUANTITY,
+	GET_PRODUCT_SUCCESS,
+	GET_PRODUCTS_BEGIN,
 } from '../actions.js';
 import reducer from '../Reducer/products.reducer.js';
+import axios from 'axios';
 
 //create context
 const ProductsContext = createContext();
@@ -23,18 +26,37 @@ const getLocalStorage = () => {
 
 //initial state
 const initialState = {
+	products: [],
+	products_loading: false,
 	cart: getLocalStorage(),
-	totalCartQuantity: 0, 
+	totalCartQuantity: 0,
 	totalAmount: 0,
 };
 
-export const ProductsProvider = ({children}) => {
+const ProductsProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
+	//fetch products
+	const fetchProducts = async (url = 'https://fakestoreapi.com/products') => {
+		dispatch({ type: GET_PRODUCTS_BEGIN });
+		try {
+			const response = await axios.get(url);
+			const products = response.data;
+			dispatch({ type: GET_PRODUCT_SUCCESS, payload: products });
+			return response
+		} catch (error) {
+			console.log(error);
+			return error
+		}
+	};
 
 	useEffect(() => {
 		dispatch({ type: GET_TOTAL_CART_QUANTITY });
 		localStorage.setItem('cart', JSON.stringify(state.cart));
 	}, [state.cart]);
+
+	useEffect(() => {
+		fetchProducts();
+	}, [])
 
 	const addToCart = (product) => {
 		dispatch({ type: ADD_TO_CART, payload: product });
@@ -47,9 +69,9 @@ export const ProductsProvider = ({children}) => {
 	};
 
 	//get total amount
-	const getTotalCartQuantity = () =>{
+	const getTotalCartQuantity = () => {
 		dispatch({ type: GET_TOTAL_CART_QUANTITY });
-	}
+	};
 
 	return (
 		<ProductsContext.Provider
@@ -59,6 +81,7 @@ export const ProductsProvider = ({children}) => {
 				removeFromCart,
 				toggleProductAmount,
 				getTotalCartQuantity,
+				fetchProducts,
 			}}
 		>
 			{children}

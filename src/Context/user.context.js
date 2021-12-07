@@ -4,7 +4,7 @@ import { auth, firestore_db } from '../Firebase/firebase';
 //create context
 const UserContext = createContext();
 
-export const UserProvider = (props: { children?: React.ReactChild }) => {
+export const UserProvider = (props) => {
 	const [currentUser, setCurrentUser] = useState({});
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);

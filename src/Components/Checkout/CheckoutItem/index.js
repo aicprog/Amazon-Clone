@@ -4,7 +4,7 @@ import prime from '../../../assets/prime.png';
 import { useProductsContext } from '../../../Context/products.context';
 
 const CheckoutItem = ({ product }) => {
-	const { id, title, img, price, amount } = product;
+	const { id, title, image, price, amount } = product;
 	const [currentAmount, setCurrentAmount] = useState(amount);
 	const [amountAboveTen, setAmountAboveTen] = useState(false);
 	const { removeFromCart, toggleProductAmount } = useProductsContext();
@@ -27,10 +27,9 @@ const CheckoutItem = ({ product }) => {
 	const handleSubmit = (e) => {
 		// console.log("HELO", currentAmount);
 		e.preventDefault();
-		if(currentAmount){
+		if (currentAmount) {
 			toggleProductAmount(id, currentAmount);
 		}
-		
 	};
 
 	useEffect(() => {
@@ -42,7 +41,7 @@ const CheckoutItem = ({ product }) => {
 	return (
 		<div className="checkout-item-container">
 			<div className="checkout-item-info">
-				<img src={img} alt={title} className="checkout-item-img" />
+				<img src={image} alt={title} className="checkout-item-img" />
 				<div className="checkout-item-inner-info">
 					<strong className="checkout-item-title">{title}</strong>
 					<small className="stock-message">In Stock</small>
@@ -98,7 +97,7 @@ const CheckoutItem = ({ product }) => {
 				</div>
 			</div>
 			<div className="price">
-				<strong>${Math.round(price * amount * 100)/100}</strong>
+				<strong>${Math.round(price * amount * 100) / 100}</strong>
 			</div>
 		</div>
 	);

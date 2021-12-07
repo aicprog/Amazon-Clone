@@ -1,4 +1,4 @@
-import {GiHamburgerMenu} from 'react-icons/gi';
+import { GiHamburgerMenu } from 'react-icons/gi';
 export const categories = [
 	{
 		id: 0,
@@ -8,22 +8,22 @@ export const categories = [
 	},
 	{
 		id: 1,
-		name: 'Deals',
-		href: '',
+		name: 'Electronics',
+		href: '/categories/electronics',
 	},
 	{
 		id: 2,
-		name: 'Best Seller',
-		href: '',
+		name: 'Jewelry',
+		href: '/categories/jewelry',
 	},
 	{
 		id: 3,
-		name: 'Beauty and Personal Care',
-		href: '',
+		name: "Men's Clothing",
+		href: '/categories/mens',
 	},
 	{
 		id: 4,
-		name: 'Customer Service',
-		href: '',
+		name: "Women's Clothing",
+		href: '/categories/womens',
 	},
 ];
