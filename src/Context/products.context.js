@@ -51,7 +51,7 @@ const ProductsProvider = ({ children }) => {
 		}
 	};
 
-	const fetchCategory = async (category) => {
+	const fetchCategory = async (category = baseURL) => {
 		const categoryUrl = `${baseURL}/category/${category}`;
 		dispatch({ type: GET_PRODUCTS_BEGIN });
 		try {

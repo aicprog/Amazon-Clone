@@ -2,7 +2,7 @@ import React from 'react';
 import { useUserContext } from '../../../Context/user.context';
 import './OrderCard.css';
 const OrderCard = () => {
-	const columns = ['Order Placed', 'Total', 'Ship To'];
+	const columns = ['Order Placed', 'Total', 'Ship To', 'Order#'];
 	const { currentUser } = useUserContext();
 	return (
 		<div className="order-card-wrapper">
@@ -20,12 +20,16 @@ const OrderCard = () => {
 					<div className="order-card-header-info">
 						{currentUser?.displayName}
 					</div>
+					<div className="order-card-header-info">113-9065915-2317835</div>
 				</div>
-				<div className="order-card-header-right">
+				{/* <div className="order-card-header-right">
 					<div className="order-card-header-column">
-						Order # 113-9065915-2317835
+						Order #
 					</div>
-				</div>
+					<div className="order-card-header-column">
+						113-9065915-2317835
+					</div>
+				</div> */}
 			</div>
 
 			<div className="order-card-left">
@@ -33,7 +37,7 @@ const OrderCard = () => {
 					<div className="order-card-arrival">Arriving Wednesday</div>
 
 					<div className="order-card-item-info">
-						<img
+						<img className="order-card-img"
 							src="https://images-na.ssl-images-amazon.com/images/I/41HuUudhPbL._SY90_.jpg"
 							alt="product-img"
 						/>

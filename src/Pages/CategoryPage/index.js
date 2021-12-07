@@ -7,29 +7,41 @@ import { Loader } from '../../Components';
 
 const CategoryPage = () => {
 	const { category } = useParams();
-	const { fetchCategory, category_items, products, products_loading } =
-		useProductsContext();
+	const {
+		fetchCategory,
+		fetchProducts,
+		category_items,
+		products,
+		products_loading,
+	} = useProductsContext();
 	useEffect(() => {
-		fetchCategory(category);
+		category !== 'all' && fetchCategory(category);
 	}, [category]);
 
-	console.log('CATEGORY', category_items);
+	console.log(category);
+	console.log(category_items);
 
 	if (products_loading || products.length === 0) {
 		return <Loader message="Loading..." />;
 	}
 
-	return (
-		<div>
-			<div className="categories-wrapper">
-				{category_items.map((product) => (
-					<div className="category-items">
-						<Product product={product} />
-					</div>
-				))}
-			</div>
-		</div>
-	);
+	if (category === 'all') {
+		return InnerCategoryPage(products);
+	}
+
+	return InnerCategoryPage(category_items);
 };
 
 export default CategoryPage;
+
+const InnerCategoryPage = (items) => {
+	return (
+		<div className="categories-wrapper">
+			{items.map((product) => (
+				<div className="category-items" key={product.id}>
+					<Product product={product} />
+				</div>
+			))}
+		</div>
+	);
+};

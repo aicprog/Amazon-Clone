@@ -3,8 +3,8 @@ export const categories = [
 	{
 		id: 0,
 		name: 'All',
-		icon: <GiHamburgerMenu />,
-		href: '',
+		// icon: <GiHamburgerMenu />,
+		href: '/categories/all',
 	},
 	{
 		id: 1,

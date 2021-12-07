@@ -1,8 +1,10 @@
 .orders-page-wrapper {
+	width: 100%;
 	max-width: 1500px;
 	padding: 2rem 5rem;
 	/* background-color: blue; */
 	margin: 0 auto;
+	min-width: 500px;
 }
 
 .title-not-loggedin {
@@ -25,11 +27,12 @@
 
 .orders-title {
 	font-weight: 400;
+	white-space: nowrap;
 }
 
 .orders-search {
 	display: flex;
-	max-width: 1400px;
+	max-width: 1500px;
 	justify-content: space-between;
 }
 
@@ -43,7 +46,6 @@
 	border-width: 1px;
 	cursor: pointer;
 	display: inline-block;
-	padding: 0;
 	text-align: center;
 	text-decoration: none !important;
 	vertical-align: middle;
@@ -88,4 +90,39 @@ input.search-all-orders {
 	font-weight: 800px;
 	font-size: 14px;
 	color: #000;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1200px) {
+	.orders-page-wrapper {
+		padding: 2rem;
+	}
+}
+@media screen and (max-width: 800px) {
+	.orders-page-wrapper {
+		background-color: rgb(140, 140, 207);
+	}
+
+	.orders-title {
+		font-size: 25px;
+	}
+
+	.search-input {
+		display: flex;
+		width: 60%;
+	}
+
+	.search-orders-btn {
+		width: 190px;
+		height: 30px;
+		font-size: 12px;
+		padding: 3px;
+		line-height: 16px;
+	}
+
+	.order-page-columns {
+		font-size: 12px;
+		white-space: nowrap;
+	}
 }

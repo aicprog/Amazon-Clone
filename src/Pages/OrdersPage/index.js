@@ -24,26 +24,33 @@ const OrdersPage = () => {
 						Looks like you are not signed in...
 					</p>
 					<p className="title-not-loggedin">
-						<Link to="/login" className="orders-return-home"> Sign in </Link> &nbsp;to see your orders.
+						<Link to="/login" className="orders-return-home">
+							{' '}
+							Sign in{' '}
+						</Link>{' '}
+						&nbsp;to see your orders.
 					</p>
 				</div>
-			</div>  
+			</div>
 		);
 	}
 
 	return (
 		<div className="orders-page-wrapper">
-			<PageHero title="Your Orders" />
-			<div className="orders-search">
-				<h1 className="orders-title">Your Orders</h1>
-				<div className="search-input">
-					<input
-						placeholder="Search all orders"
-						className="search-all-orders"
-					></input>
-					<button className="search-orders-btn">Search Orders</button>
+				{/* Navigation */}
+				<PageHero title="Your Orders" />
+				{/* Search */}
+				<div className="orders-search">
+					<h1 className="orders-title">Your Orders</h1>
+					<div className="search-input">
+						<input
+							placeholder="Search all orders"
+							className="search-all-orders"
+						></input>
+						<button className="search-orders-btn">Search Orders</button>
+					</div>
 				</div>
-			</div>
+	
 			{/* Columns */}
 			<div className="order-page-columns">
 				<div className="order-page-header-info">

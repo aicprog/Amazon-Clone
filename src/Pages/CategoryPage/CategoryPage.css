@@ -1,9 +1,22 @@
 .categories-wrapper {
-	width: 99.2%;
+	width: 98%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .category-items {
-	margin: 1rem;
+	margin: 1rem 1rem 0.8rem 0.8rem;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+	.categories-wrapper {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.categories-wrapper {
+		grid-template-columns: 1fr 1fr;
+	}
 }
