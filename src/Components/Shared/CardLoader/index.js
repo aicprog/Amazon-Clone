@@ -1,17 +1,21 @@
 import React from 'react';
 import './CardLoader.css';
 
-const CardLoader = () => {
+const CardLoader = ({cardAmount}) => {
 	return (
-		
-			<div className="product-loader-cards">
-				{Array(8)
-					.fill(8)
-					.map((card) => {
-						return <LoadingCard />;
-					})}
-			</div>
-	
+		<div
+			className={`${
+				cardAmount === 8
+					? 'product-loader-cards-more'
+					: 'product-loader-cards-less'
+			}`}
+		>
+			{Array(cardAmount)
+				.fill(cardAmount)
+				.map((card) => {
+					return <LoadingCard />;
+				})}
+		</div>
 	);
 };
 

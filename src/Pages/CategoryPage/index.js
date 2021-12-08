@@ -3,29 +3,27 @@ import './CategoryPage.css';
 import { useParams } from 'react-router';
 import { useProductsContext } from '../../Context/products.context';
 import { CardLoader, Product } from '../../Components';
-import { Loader } from '../../Components';
 
 const CategoryPage = () => {
 	const { category } = useParams();
-	const {
-		fetchCategory,
-		fetchProducts,
-		category_items,
-		products,
-		products_loading,
-	} = useProductsContext();
+	const { fetchCategory, category_items, products, products_loading } =
+		useProductsContext();
 
 	useEffect(() => {
 		category !== 'all' && fetchCategory(category);
 	}, [category]);
 
-	console.log(category);
-	console.log(category_items);
-
+	// card loader
 	if (products_loading || products.length === 0) {
-		return <CardLoader />;
+		return (
+			<>
+				<HeaderCategoryPage category={category} />
+				<CardLoader cardAmount={8} />;
+			</>
+		);
 	}
 
+	//display all products
 	if (category === 'all') {
 		return (
 			<>
@@ -34,7 +32,7 @@ const CategoryPage = () => {
 			</>
 		);
 	}
-
+	//display items based on category
 	return (
 		<>
 			<HeaderCategoryPage category={category} length={category_items.length} />
@@ -45,7 +43,8 @@ const CategoryPage = () => {
 
 export default CategoryPage;
 
-const HeaderCategoryPage = ({ category, length }) => (
+//other needed components
+const HeaderCategoryPage = ({ category, length = 0 }) => (
 	<div className="category-page-header">
 		<h1 className="category-page-title">{category}</h1>
 		<p>{length} total items</p>

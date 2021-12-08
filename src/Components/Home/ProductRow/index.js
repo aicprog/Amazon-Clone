@@ -10,8 +10,9 @@ const ProductRow = () => {
 	let item = 1;
 
 	if (products_loading || products.length === 0) {
-		return <CardLoader />;
+		return <CardLoader cardAmount={6} />;
 	}
+
 
 	return (
 		<>

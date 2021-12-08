@@ -7,6 +7,7 @@ import {
 	GET_PRODUCT_SUCCESS,
 	GET_PRODUCTS_BEGIN,
 	GET_CATEGORY_SUCCESS,
+	GET_SEARCH_QUERY,
 } from '../actions.js';
 import reducer from '../Reducer/products.reducer.js';
 import axios from 'axios';
@@ -33,12 +34,14 @@ const initialState = {
 	cart: getLocalStorage(),
 	totalCartQuantity: 0,
 	totalAmount: 0,
+	search_query: ''
 };
 
 const ProductsProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 	let baseURL = 'https://fakestoreapi.com/products';
-	//fetch products
+
+	//fetch all products
 	const fetchProducts = async (url = `${baseURL}`) => {
 		dispatch({ type: GET_PRODUCTS_BEGIN });
 		try {
@@ -50,7 +53,7 @@ const ProductsProvider = ({ children }) => {
 			return error;
 		}
 	};
-
+	//fetch based on category
 	const fetchCategory = async (category = baseURL) => {
 		const categoryUrl = `${baseURL}/category/${category}`;
 		dispatch({ type: GET_PRODUCTS_BEGIN });
@@ -63,6 +66,11 @@ const ProductsProvider = ({ children }) => {
 			return error;
 		}
 	};
+
+	//fetch based on search
+	const fetchQuery = async() =>{
+
+	}
 
 	useEffect(() => {
 		dispatch({ type: GET_TOTAL_CART_QUANTITY });
@@ -98,6 +106,7 @@ const ProductsProvider = ({ children }) => {
 				getTotalCartQuantity,
 				fetchProducts,
 				fetchCategory,
+				fetchQuery,
 			}}
 		>
 			{children}
