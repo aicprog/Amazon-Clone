@@ -100,9 +100,6 @@ input.search-all-orders {
 	}
 }
 @media screen and (max-width: 800px) {
-	.orders-page-wrapper {
-		background-color: rgb(140, 140, 207);
-	}
 
 	.orders-title {
 		font-size: 25px;

@@ -5,9 +5,11 @@ import { AiTwotoneStar } from 'react-icons/ai';
 
 //Product for product row
 const Product = ({ product }) => {
-	const { title, price, image, rating } = product;
 	const { addToCart } = useProductsContext();
-	console.log(image);
+
+
+	const { title, price, image, rating } = product;
+
 	return (
 		<div className="product">
 			<div className="products-info-top">

@@ -1,18 +1,16 @@
 import React from 'react';
 import './ProductRow.css';
 import { useProductsContext } from '../../../Context/products.context';
-import { Loader, Product } from '../../../Components';
+import { CardLoader, Product } from '../../../Components';
 
 const ProductRow = () => {
 	const { products, products_loading } = useProductsContext();
 	const array = [2, 1, 3];
 
-
-
 	let item = 1;
 
 	if (products_loading || products.length === 0) {
-		return <Loader message="Loading..." />;
+		return <CardLoader />;
 	}
 
 	return (

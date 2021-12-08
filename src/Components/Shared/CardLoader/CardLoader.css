@@ -1,0 +1,56 @@
+.product-loader-cards {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(auto, 1fr));
+	grid-gap: 2rem;
+	justify-items: center;
+	margin: 1rem 2rem;
+	overflow: hidden;
+}
+
+@keyframes colorChanger {
+	from {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+	to {
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+}
+
+.product-loader-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	margin: 10px 10px;
+	padding: 20px 0;
+	width: 100%;
+	min-width: 130px;
+	background-color: rgba(0, 0, 0, 0.1);
+	z-index: 1;
+	height: 400px;
+	animation: colorChanger 0.8s infinite;
+	animation-fill-mode: both;
+	transition: all ease-in-out;
+}
+
+.product-loader-card:nth-child(1) {
+	animation-delay: 0.1s;
+}
+.product-loader-card:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.product-loader-card:nth-child(3) {
+	animation-delay: 0.3s;
+}
+.product-loader-card:nth-child(4) {
+	animation-delay: 0.4s;
+}
+/* &:nth-child(5) {
+	animation-delay: 0.5s;
+}
+&:nth-child(6) {
+	animation-delay: 0.6s;
+}
+&:nth-child(7) {
+	animation-delay: 0.7s;
+} */

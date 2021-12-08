@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './CategoryPage.css';
 import { useParams } from 'react-router';
 import { useProductsContext } from '../../Context/products.context';
-import { Product } from '../../Components';
+import { CardLoader, Product } from '../../Components';
 import { Loader } from '../../Components';
 
 const CategoryPage = () => {
@@ -14,6 +14,7 @@ const CategoryPage = () => {
 		products,
 		products_loading,
 	} = useProductsContext();
+
 	useEffect(() => {
 		category !== 'all' && fetchCategory(category);
 	}, [category]);
@@ -22,17 +23,34 @@ const CategoryPage = () => {
 	console.log(category_items);
 
 	if (products_loading || products.length === 0) {
-		return <Loader message="Loading..." />;
+		return <CardLoader />;
 	}
 
 	if (category === 'all') {
-		return InnerCategoryPage(products);
+		return (
+			<>
+				<HeaderCategoryPage category={category} length={products.length} />
+				{InnerCategoryPage(products)}
+			</>
+		);
 	}
 
-	return InnerCategoryPage(category_items);
+	return (
+		<>
+			<HeaderCategoryPage category={category} length={category_items.length} />
+			{InnerCategoryPage(category_items)}
+		</>
+	);
 };
 
 export default CategoryPage;
+
+const HeaderCategoryPage = ({ category, length }) => (
+	<div className="category-page-header">
+		<h1 className="category-page-title">{category}</h1>
+		<p>{length} total items</p>
+	</div>
+);
 
 const InnerCategoryPage = (items) => {
 	return (
