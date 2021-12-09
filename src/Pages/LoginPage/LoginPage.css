@@ -1,4 +1,4 @@
-h1 {
+h1.form-title {
 	font-weight: 400;
 	font-size: 28px;
 	line-height: 1.2;
@@ -12,7 +12,7 @@ h1 {
 	border-radius: 3px;
 	box-shadow: 0 1px 0 rgb(255 255 255 / 50%), 0 1px 0 rgb(0 0 0 / 7%) inset;
 	outline: 0;
-    padding-left: 5px;
+	padding-left: 5px;
 }
 
 strong {
@@ -41,11 +41,11 @@ strong {
 
 .login-logo {
 	object-fit: contain;
-    background-position: -5px -130px;
+	background-position: -5px -130px;
 	width: 103px;
-    height: 31px;
+	height: 31px;
 	margin: 20px auto;
-    
+
 	display: flex;
 	justify-content: center;
 }
@@ -171,10 +171,10 @@ strong {
 	padding-top: 1.5rem;
 }
 
-.login-footer-copyright{
-    font-size: 11px !important;
+.login-footer-copyright {
+	font-size: 11px !important;
 	line-height: 1.465 !important;
 	text-align: center !important;
-    color: #555;
-    padding-top:1rem;
+	color: #555;
+	padding-top: 1rem;
 }

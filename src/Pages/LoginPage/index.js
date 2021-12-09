@@ -41,7 +41,7 @@ const LoginPage = () => {
 					<img src={logo} alt="amazon logo" className="login-logo" />
 				</Link>
 				<div className="form-container">
-					<h1>Sign-In</h1>
+					<h1 className="form-title">Sign-In</h1>
 					<form className="login-form">
 						<strong>E-mail</strong>
 						<input

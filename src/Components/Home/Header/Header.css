@@ -42,16 +42,8 @@
 	border: none;
 	width: 100%;
 	border-radius: 5px;
+	min-width: 200px;
 }
-
-/* .header-search-icon {
-	padding: 5px;
-	height: 28.5px !important;
-	background-color: #cd9042;
-	border-radius: 0 5px 5px 0;
-	position: absolute;
-	right: 0;
-} */
 
 div.header-search > svg {
 	padding: 5px;
@@ -178,24 +170,31 @@ div.header-search > svg:hover {
 	padding: 0 0.5rem 0 0;
 }
 
+.hamburger {
+	color: white;
+	margin-right: 1.5rem;
+	font-size: 1.3rem;
+	cursor: pointer;
+}
+@media screen and (min-width: 900px) {
+	.hamburger {
+		display: none;
+	}
+}
+@media screen and (max-width: 900px) {
+	.header-option {
+		display: none;
+	}
+
+	.header-option-icon {
+		display: none;
+	}
+}
 @media screen and (max-width: 800px) {
 	.header-categories {
 		padding: 0 1.5rem;
 		font-size: 12px;
 		line-height: 1em;
 		font-weight: 700;
-	}
-
-	.header-option {
-		margin: 0 5px;
-		padding: 0 5px;
-	}
-
-	.header-option:nth-child(2) {
-		display: none;
-	}
-
-	.header-nav:nth-child(2) {
-		display: none;
 	}
 }

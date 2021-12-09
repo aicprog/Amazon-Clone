@@ -6,6 +6,8 @@ import {
 	GET_PRODUCT_SUCCESS,
 	GET_PRODUCTS_BEGIN,
 	GET_CATEGORY_SUCCESS,
+	GET_SEARCH_QUERY_SUCCESS, 
+	TOGGLE_SIDEBAR,
 } from '../actions';
 
 const products_reducer = (state, action) => {
@@ -20,6 +22,17 @@ const products_reducer = (state, action) => {
 			return {
 				...state,
 				category_items: action.payload,
+				products_loading: false,
+			};
+		case GET_SEARCH_QUERY_SUCCESS:
+
+			const queriedItems = state.products.filter(item =>{
+				return item.name.toLowerCase().includes(action.payload)
+			})
+
+			return {
+				...state,
+				queried_items: queriedItems,
 				products_loading: false,
 			};
 
@@ -79,6 +92,9 @@ const products_reducer = (state, action) => {
 			);
 
 			return { ...state, totalCartQuantity, totalAmount };
+		case TOGGLE_SIDEBAR:
+
+			return { ...state, isSidebarOpen: !state.isSidebarOpen };
 
 		default:
 			throw new Error(`No Matching "${action.type}" - action type`);

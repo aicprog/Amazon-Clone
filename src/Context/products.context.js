@@ -7,7 +7,8 @@ import {
 	GET_PRODUCT_SUCCESS,
 	GET_PRODUCTS_BEGIN,
 	GET_CATEGORY_SUCCESS,
-	GET_SEARCH_QUERY,
+	GET_SEARCH_QUERY_SUCCESS,
+	TOGGLE_SIDEBAR,
 } from '../actions.js';
 import reducer from '../Reducer/products.reducer.js';
 import axios from 'axios';
@@ -34,7 +35,9 @@ const initialState = {
 	cart: getLocalStorage(),
 	totalCartQuantity: 0,
 	totalAmount: 0,
-	search_query: ''
+	search_query: '',
+	queried_items: [],
+	isSidebarOpen: false,
 };
 
 const ProductsProvider = ({ children }) => {
@@ -68,9 +71,10 @@ const ProductsProvider = ({ children }) => {
 	};
 
 	//fetch based on search
-	const fetchQuery = async() =>{
-
-	}
+	const fetchQuery = async (query) => {
+		dispatch({ type: GET_PRODUCTS_BEGIN });
+		dispatch({ type: GET_SEARCH_QUERY_SUCCESS, payload: query });
+	};
 
 	useEffect(() => {
 		dispatch({ type: GET_TOTAL_CART_QUANTITY });
@@ -80,6 +84,10 @@ const ProductsProvider = ({ children }) => {
 	useEffect(() => {
 		fetchProducts();
 	}, []);
+
+	const toggleSidebar = () => {
+		dispatch({ type: TOGGLE_SIDEBAR });
+	};
 
 	const addToCart = (product) => {
 		dispatch({ type: ADD_TO_CART, payload: product });
@@ -107,6 +115,7 @@ const ProductsProvider = ({ children }) => {
 				fetchProducts,
 				fetchCategory,
 				fetchQuery,
+				toggleSidebar,
 			}}
 		>
 			{children}

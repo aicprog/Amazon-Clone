@@ -1,5 +1,6 @@
 //Home Page
 export { default as Header } from './Home/Header';
+export { default as Sidebar } from './Home/Sidebar';
 export { default as Footer } from './Home/Footer';
 export { default as Carousel } from './Home/Carousel';
 export { default as ProductRow } from './Home/ProductRow';
@@ -13,3 +14,4 @@ export { default as CheckoutSubtotal } from './Checkout/CheckoutSubtotal';
 export { default as Loader } from './Shared/Loader';
 export { default as Product } from './Shared/Product';
 export { default as CardLoader } from './Shared/CardLoader';
+

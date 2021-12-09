@@ -9,7 +9,7 @@ export const headerLinks = [
 	},
 
 	{
-		id: 2,
+		id: 1,
 		topName: '',
 		bottomName: '',
 		icon: cart,

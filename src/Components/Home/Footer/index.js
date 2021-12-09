@@ -15,11 +15,15 @@ const Footer = (props) => {
 		return <></>;
 	}
 
+	const backToTop = () => {
+		window.scrollTo(0, 0);
+	};
+
 	return (
 		<div className="footer-container">
-			<a className="footer-back-to-top" href="/">
+			<div className="footer-back-to-top" onClick={backToTop}>
 				<div>Back to the top</div>
-			</a>
+			</div>
 			{/* Top of Footer */}
 			<div className="footer-top">
 				{topFooterSections.map((section) => {

@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/amazon-logo.svg';
 import { useUserContext } from '../../Context/user.context';
-import './SignUpPage.css';
 // import { useNavigate } from 'react-router-dom';
-import useNavigation from '../../CustomHooks/useNavigation'
+import useNavigation from '../../CustomHooks/useNavigation';
 
 const SignUpPage = () => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [showWarning, setShowWarning] = useState(false);
-	const navigator = useNavigation()
+	const navigator = useNavigation();
 	// const navigate = useNavigate();
 
 	const { createUser } = useUserContext();
@@ -53,7 +52,7 @@ const SignUpPage = () => {
 					<img src={logo} alt="amazon logo" className="login-logo" />
 				</Link>
 				<div className="form-container">
-					<h1>Create account</h1>
+					<h1 className="form-title">Create account</h1>
 					<form className="login-form">
 						<strong>Name</strong>
 						<input

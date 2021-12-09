@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Footer, Header } from './Components';
+import { Footer, Header, Sidebar } from './Components';
 import {
 	HomePage,
 	CheckoutPage,
@@ -18,6 +18,7 @@ function App() {
 			<Router history={history}>
 				{/* Header */}
 				<Header />
+				<Sidebar />
 				<Routes>
 					<Route path="/" element={<HomePage />} />
 					<Route path="/checkout" element={<CheckoutPage />} />

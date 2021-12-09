@@ -17,6 +17,7 @@
 	align-items: center;
 	justify-content: center;
 	padding: 15px 0;
+	cursor: pointer;
 }
 
 .footer-back-to-top > div {
@@ -125,9 +126,6 @@ li.footer-end-link > a {
 		padding: 0;
 	}
 
-	.footer-bottom {
-
-	}
 	.footer-bottom-links {
 		/* grid-template-columns: 1fr 1fr 1fr 1fr;
 		padding: 3rem 0rem;
@@ -140,5 +138,3 @@ li.footer-end-link > a {
 		flex-direction: column;
 	}
 }
-
-
