@@ -26,6 +26,7 @@ const Sidebar = () => {
 				<Link
 					to={`${currentUser?.displayName ? '/' : '/login'}`}
 					className="sidebar-option"
+					onClick={toggleSidebar}
 				>
 					<span className="sidebar-option-one">
 						{`Hello ${
@@ -48,6 +49,7 @@ const Sidebar = () => {
 						className={`${
 							link.icon ? 'sidebar-option-icon' : 'sidebar-option'
 						}`}
+						onClick={toggleSidebar}
 					>
 						<span className="sidebar-option-one">{link.topName}</span>
 
