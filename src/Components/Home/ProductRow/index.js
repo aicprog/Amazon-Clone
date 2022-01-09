@@ -16,6 +16,7 @@ const ProductRow = () => {
 
 	return (
 		<>
+		
 			{array.map((row, index) => {
 				return (
 					<div key={index} className="product-row">
