@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <style>* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	background: #eaeded;
+	/* background: rgb(234, 237, 237); */
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvaW5kZXguY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0NBQ0MsU0FBUztDQUNULFVBQVU7QUFDWDs7QUFFQTtDQUNDLFNBQVM7Q0FDVCxtQkFBbUI7Q0FDbkIsb0NBQW9DO0NBQ3BDOztZQUVXO0NBQ1gsbUNBQW1DO0NBQ25DLGtDQUFrQztBQUNuQzs7QUFFQTtDQUNDO1dBQ1U7QUFDWCIsInNvdXJjZXNDb250ZW50IjpbIioge1xuXHRtYXJnaW46IDA7XG5cdHBhZGRpbmc6IDA7XG59XG5cbmJvZHkge1xuXHRtYXJnaW46IDA7XG5cdGJhY2tncm91bmQ6ICNlYWVkZWQ7XG5cdC8qIGJhY2tncm91bmQ6IHJnYigyMzQsIDIzNywgMjM3KTsgKi9cblx0Zm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgJ1JvYm90bycsICdPeHlnZW4nLFxuXHRcdCdVYnVudHUnLCAnQ2FudGFyZWxsJywgJ0ZpcmEgU2FucycsICdEcm9pZCBTYW5zJywgJ0hlbHZldGljYSBOZXVlJyxcblx0XHRzYW5zLXNlcmlmO1xuXHQtd2Via2l0LWZvbnQtc21vb3RoaW5nOiBhbnRpYWxpYXNlZDtcblx0LW1vei1vc3gtZm9udC1zbW9vdGhpbmc6IGdyYXlzY2FsZTtcbn1cblxuY29kZSB7XG5cdGZvbnQtZmFtaWx5OiBzb3VyY2UtY29kZS1wcm8sIE1lbmxvLCBNb25hY28sIENvbnNvbGFzLCAnQ291cmllciBOZXcnLFxuXHRcdG1vbm9zcGFjZTtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style><style>
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */</style><style>.header {
+	display: flex;
+	flex-direction: column;
+}
+
+.header-top {
+	height: 60px;
+	display: flex;
+	align-items: center;
+	background-color: #131921;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+.header-logo {
+	width: 100px;
+	object-fit: contain;
+	margin: 0 20px;
+	margin-top: 18px;
+}
+
+.header-search {
+	display: flex;
+	flex: 1 1;
+	align-items: center;
+	border-radius: 24px;
+	position: relative;
+}
+
+.header-search-input {
+	height: 14px;
+	padding: 14px;
+	border: none;
+	width: 100%;
+	border-radius: 5px;
+}
+
+.header-search-icon {
+	padding: 5px;
+	height: 28.5px !important;
+	background-color: #cd9042;
+	border-radius: 0 5px 5px 0;
+	position: absolute;
+	right: 0;
+}
+
+.header-option {
+	cursor: pointer;
+	padding: 0 0.8rem;
+}
+
+.header-option-one {
+	font-size: 10px;
+}
+.header-option-two {
+	font-size: 13px;
+	font-weight: 800;
+}
+
+.header-option-icon {
+	display: flex;
+	align-items: center;
+	color: #fff;
+	cursor: pointer;
+}
+
+.header-basket-count {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.header-nav {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.header-option {
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+	margin-right: 10px;
+	color: #fff;
+}
+
+/* Header Categories */
+
+.header-bottom {
+	color: #fff;
+	height: 40px;
+	background-color: rgb(35, 47, 62);
+	width: 100%;
+}
+
+.header-categories {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 50%;
+	padding: 0 2rem;
+	height: 100%;
+	font-size: 14px;
+	line-height: 1em;
+	font-weight: 700;
+}
+
+.header-category-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.header-menu-icon svg {
+    height: 2.5rem;
+    width: 2rem;
+	padding: 0 0.5rem 0 0;
+
+
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvQ29tcG9uZW50cy9Ib21lL0hlYWRlci9IZWFkZXIuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0NBQ0MsYUFBYTtDQUNiLHNCQUFzQjtBQUN2Qjs7QUFFQTtDQUNDLFlBQVk7Q0FDWixhQUFhO0NBQ2IsbUJBQW1CO0NBQ25CLHlCQUF5QjtDQUN6QixnQkFBZ0I7Q0FDaEIsTUFBTTtDQUNOLFlBQVk7QUFDYjs7QUFFQTtDQUNDLFlBQVk7Q0FDWixtQkFBbUI7Q0FDbkIsY0FBYztDQUNkLGdCQUFnQjtBQUNqQjs7QUFFQTtDQUNDLGFBQWE7Q0FDYixTQUFPO0NBQ1AsbUJBQW1CO0NBQ25CLG1CQUFtQjtDQUNuQixrQkFBa0I7QUFDbkI7O0FBRUE7Q0FDQyxZQUFZO0NBQ1osYUFBYTtDQUNiLFlBQVk7Q0FDWixXQUFXO0NBQ1gsa0JBQWtCO0FBQ25COztBQUVBO0NBQ0MsWUFBWTtDQUNaLHlCQUF5QjtDQUN6Qix5QkFBeUI7Q0FDekIsMEJBQTBCO0NBQzFCLGtCQUFrQjtDQUNsQixRQUFRO0FBQ1Q7O0FBRUE7Q0FDQyxlQUFlO0NBQ2YsaUJBQWlCO0FBQ2xCOztBQUVBO0NBQ0MsZUFBZTtBQUNoQjtBQUNBO0NBQ0MsZUFBZTtDQUNmLGdCQUFnQjtBQUNqQjs7QUFFQTtDQUNDLGFBQWE7Q0FDYixtQkFBbUI7Q0FDbkIsV0FBVztDQUNYLGVBQWU7QUFDaEI7O0FBRUE7Q0FDQyxpQkFBaUI7Q0FDakIsa0JBQWtCO0FBQ25COztBQUVBO0NBQ0MsYUFBYTtDQUNiLDZCQUE2QjtBQUM5Qjs7QUFFQTtDQUNDLGFBQWE7Q0FDYixzQkFBc0I7Q0FDdEIsaUJBQWlCO0NBQ2pCLGtCQUFrQjtDQUNsQixXQUFXO0FBQ1o7O0FBRUEsc0JBQXNCOztBQUV0QjtDQUNDLFdBQVc7Q0FDWCxZQUFZO0NBQ1osaUNBQWlDO0NBQ2pDLFdBQVc7QUFDWjs7QUFFQTtDQUNDLGFBQWE7Q0FDYiw4QkFBOEI7Q0FDOUIsbUJBQW1CO0NBQ25CLFVBQVU7Q0FDVixlQUFlO0NBQ2YsWUFBWTtDQUNaLGVBQWU7Q0FDZixnQkFBZ0I7Q0FDaEIsZ0JBQWdCO0FBQ2pCOztBQUVBO0NBQ0MsYUFBYTtDQUNiLHVCQUF1QjtDQUN2QixtQkFBbUI7O0FBRXBCOztBQUVBO0lBQ0ksY0FBYztJQUNkLFdBQVc7Q0FDZCxxQkFBcUI7OztBQUd0QiIsInNvdXJjZXNDb250ZW50IjpbIi5oZWFkZXIge1xuXHRkaXNwbGF5OiBmbGV4O1xuXHRmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xufVxuXG4uaGVhZGVyLXRvcCB7XG5cdGhlaWdodDogNjBweDtcblx0ZGlzcGxheTogZmxleDtcblx0YWxpZ24taXRlbXM6IGNlbnRlcjtcblx0YmFja2dyb3VuZC1jb2xvcjogIzEzMTkyMTtcblx0cG9zaXRpb246IHN0aWNreTtcblx0dG9wOiAwO1xuXHR6LWluZGV4OiAxMDA7XG59XG5cbi5oZWFkZXItbG9nbyB7XG5cdHdpZHRoOiAxMDBweDtcblx0b2JqZWN0LWZpdDogY29udGFpbjtcblx0bWFyZ2luOiAwIDIwcHg7XG5cdG1hcmdpbi10b3A6IDE4cHg7XG59XG5cbi5oZWFkZXItc2VhcmNoIHtcblx0ZGlzcGxheTogZmxleDtcblx0ZmxleDogMTtcblx0YWxpZ24taXRlbXM6IGNlbnRlcjtcblx0Ym9yZGVyLXJhZGl1czogMjRweDtcblx0cG9zaXRpb246IHJlbGF0aXZlO1xufVxuXG4uaGVhZGVyLXNlYXJjaC1pbnB1dCB7XG5cdGhlaWdodDogMTRweDtcblx0cGFkZGluZzogMTRweDtcblx0Ym9yZGVyOiBub25lO1xuXHR3aWR0aDogMTAwJTtcblx0Ym9yZGVyLXJhZGl1czogNXB4O1xufVxuXG4uaGVhZGVyLXNlYXJjaC1pY29uIHtcblx0cGFkZGluZzogNXB4O1xuXHRoZWlnaHQ6IDI4LjVweCAhaW1wb3J0YW50O1xuXHRiYWNrZ3JvdW5kLWNvbG9yOiAjY2Q5MDQyO1xuXHRib3JkZXItcmFkaXVzOiAwIDVweCA1cHggMDtcblx0cG9zaXRpb246IGFic29sdXRlO1xuXHRyaWdodDogMDtcbn1cblxuLmhlYWRlci1vcHRpb24ge1xuXHRjdXJzb3I6IHBvaW50ZXI7XG5cdHBhZGRpbmc6IDAgMC44cmVtO1xufVxuXG4uaGVhZGVyLW9wdGlvbi1vbmUge1xuXHRmb250LXNpemU6IDEwcHg7XG59XG4uaGVhZGVyLW9wdGlvbi10d28ge1xuXHRmb250LXNpemU6IDEzcHg7XG5cdGZvbnQtd2VpZ2h0OiA4MDA7XG59XG5cbi5oZWFkZXItb3B0aW9uLWljb24ge1xuXHRkaXNwbGF5OiBmbGV4O1xuXHRhbGlnbi1pdGVtczogY2VudGVyO1xuXHRjb2xvcjogI2ZmZjtcblx0Y3Vyc29yOiBwb2ludGVyO1xufVxuXG4uaGVhZGVyLWJhc2tldC1jb3VudCB7XG5cdG1hcmdpbi1sZWZ0OiAxMHB4O1xuXHRtYXJnaW4tcmlnaHQ6IDEwcHg7XG59XG5cbi5oZWFkZXItbmF2IHtcblx0ZGlzcGxheTogZmxleDtcblx0anVzdGlmeS1jb250ZW50OiBzcGFjZS1ldmVubHk7XG59XG5cbi5oZWFkZXItb3B0aW9uIHtcblx0ZGlzcGxheTogZmxleDtcblx0ZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcblx0bWFyZ2luLWxlZnQ6IDEwcHg7XG5cdG1hcmdpbi1yaWdodDogMTBweDtcblx0Y29sb3I6ICNmZmY7XG59XG5cbi8qIEhlYWRlciBDYXRlZ29yaWVzICovXG5cbi5oZWFkZXItYm90dG9tIHtcblx0Y29sb3I6ICNmZmY7XG5cdGhlaWdodDogNDBweDtcblx0YmFja2dyb3VuZC1jb2xvcjogcmdiKDM1LCA0NywgNjIpO1xuXHR3aWR0aDogMTAwJTtcbn1cblxuLmhlYWRlci1jYXRlZ29yaWVzIHtcblx0ZGlzcGxheTogZmxleDtcblx0anVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuXHRhbGlnbi1pdGVtczogY2VudGVyO1xuXHR3aWR0aDogNTAlO1xuXHRwYWRkaW5nOiAwIDJyZW07XG5cdGhlaWdodDogMTAwJTtcblx0Zm9udC1zaXplOiAxNHB4O1xuXHRsaW5lLWhlaWdodDogMWVtO1xuXHRmb250LXdlaWdodDogNzAwO1xufVxuXG4uaGVhZGVyLWNhdGVnb3J5LWl0ZW0ge1xuXHRkaXNwbGF5OiBmbGV4O1xuXHRqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcblx0YWxpZ24taXRlbXM6IGNlbnRlcjtcblxufVxuXG4uaGVhZGVyLW1lbnUtaWNvbiBzdmcge1xuICAgIGhlaWdodDogMi41cmVtO1xuICAgIHdpZHRoOiAycmVtO1xuXHRwYWRkaW5nOiAwIDAuNXJlbSAwIDA7XG5cblxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>.footer-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer-back-to-top {
+	background: #37475a;
+	height: 50px;
+	width: 100%;
+	min-width: 2px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 15px 0;
+}
+
+.footer-back-to-top > div {
+	color: #fff;
+	font-size: 13px;
+	line-height: 19px;
+	font-weight: 700;
+}
+
+.footer-back-to-top:hover {
+	background: rgba(55, 71, 90, 0.9);
+}
+
+.footer-top {
+	background-color: #232f3e;
+	color: #fff;
+	height: auto;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 3rem 10rem;
+}
+
+.footer-top-section > p {
+	color: #fff;
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin: 6px 0 14px 0;
+	white-space: nowrap;
+}
+
+.footer-top-link > a {
+	color: #ddd;
+	text-decoration: none;
+	font-size: 14px;
+	margin: 0 0 10px;
+	line-height: 1rem;
+	font-weight: 600;
+}
+
+.footer-bottom {
+	background-color: #131a22;
+	padding: 30px 0;
+	/* margin: 30px 0 0; */
+	width: 100%;
+}
+
+.footer-bottom-links {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	padding: 3rem 10rem;
+	justify-items: center;
+}
+
+.footer-bottom-link {
+	color: #ddd;
+	display: flex;
+	flex-direction: column;
+	font-size: 12px !important;
+	padding: 0 0.75em;
+	vertical-align: top;
+	text-align: left;
+	line-height: 115%;
+	margin-bottom: 1rem;
+	max-width: 100px;
+	cursor: pointer;
+}
+
+ul.footer-end-links {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+li.footer-end-link {
+	color: #fff;
+	padding: 0 1rem;
+	text-align: center;
+}
+
+li.footer-end-link > a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+	.footer-top {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(250px, 1fr));
+	}
+
+	.footer-top-section {
+		margin: 2rem;
+	}
+
+	.footer-bottom-links {
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        margin: auto;
+	}
+
+	.footer-bottom-link {
+		padding-bottom: 1rem;
+	}
+}
+@media screen and (max-width: 800px) {
+	.footer-top {
+		padding: 0;
+	}
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvQ29tcG9uZW50cy9Ib21lL0Zvb3Rlci9Gb290ZXIuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0NBQ0MsYUFBYTtDQUNiLHNCQUFzQjtDQUN0QixtQkFBbUI7Q0FDbkIsdUJBQXVCO0FBQ3hCOztBQUVBO0NBQ0MsbUJBQW1CO0NBQ25CLFlBQVk7Q0FDWixXQUFXO0NBQ1gsY0FBYztDQUNkLGtCQUFrQjtDQUNsQixhQUFhO0NBQ2Isc0JBQXNCO0NBQ3RCLG1CQUFtQjtDQUNuQix1QkFBdUI7Q0FDdkIsZUFBZTtBQUNoQjs7QUFFQTtDQUNDLFdBQVc7Q0FDWCxlQUFlO0NBQ2YsaUJBQWlCO0NBQ2pCLGdCQUFnQjtBQUNqQjs7QUFFQTtDQUNDLGlDQUFpQztBQUNsQzs7QUFFQTtDQUNDLHlCQUF5QjtDQUN6QixXQUFXO0NBQ1gsWUFBWTtDQUNaLFdBQVc7Q0FDWCxhQUFhO0NBQ2IsOEJBQThCO0NBQzlCLG1CQUFtQjtBQUNwQjs7QUFFQTtDQUNDLFdBQVc7Q0FDWCxpQkFBaUI7Q0FDakIsZ0JBQWdCO0NBQ2hCLG9CQUFvQjtDQUNwQixtQkFBbUI7QUFDcEI7O0FBRUE7Q0FDQyxXQUFXO0NBQ1gscUJBQXFCO0NBQ3JCLGVBQWU7Q0FDZixnQkFBZ0I7Q0FDaEIsaUJBQWlCO0NBQ2pCLGdCQUFnQjtBQUNqQjs7QUFFQTtDQUNDLHlCQUF5QjtDQUN6QixlQUFlO0NBQ2Ysc0JBQXNCO0NBQ3RCLFdBQVc7QUFDWjs7QUFFQTtDQUNDLGFBQWE7Q0FDYiw4Q0FBOEM7Q0FDOUMsbUJBQW1CO0NBQ25CLHFCQUFxQjtBQUN0Qjs7QUFFQTtDQUNDLFdBQVc7Q0FDWCxhQUFhO0NBQ2Isc0JBQXNCO0NBQ3RCLDBCQUEwQjtDQUMxQixpQkFBaUI7Q0FDakIsbUJBQW1CO0NBQ25CLGdCQUFnQjtDQUNoQixpQkFBaUI7Q0FDakIsbUJBQW1CO0NBQ25CLGdCQUFnQjtDQUNoQixlQUFlO0FBQ2hCOztBQUVBO0NBQ0MsV0FBVztDQUNYLGFBQWE7Q0FDYix1QkFBdUI7Q0FDdkIsbUJBQW1CO0FBQ3BCOztBQUVBO0NBQ0MsV0FBVztDQUNYLGVBQWU7Q0FDZixrQkFBa0I7QUFDbkI7O0FBRUE7Q0FDQyxXQUFXO0NBQ1gscUJBQXFCO0NBQ3JCLGVBQWU7QUFDaEI7O0FBRUEsa0JBQWtCO0FBQ2xCO0NBQ0M7RUFDQyxhQUFhO0VBQ2Isb0RBQW9EO0NBQ3JEOztDQUVBO0VBQ0MsWUFBWTtDQUNiOztDQUVBO0VBQ0MsMENBQTBDO1FBQ3BDLFlBQVk7Q0FDbkI7O0NBRUE7RUFDQyxvQkFBb0I7Q0FDckI7QUFDRDtBQUNBO0NBQ0M7RUFDQyxVQUFVO0NBQ1g7QUFDRCIsInNvdXJjZXNDb250ZW50IjpbIi5mb290ZXItY29udGFpbmVyIHtcblx0ZGlzcGxheTogZmxleDtcblx0ZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcblx0YWxpZ24taXRlbXM6IGNlbnRlcjtcblx0anVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG59XG5cbi5mb290ZXItYmFjay10by10b3Age1xuXHRiYWNrZ3JvdW5kOiAjMzc0NzVhO1xuXHRoZWlnaHQ6IDUwcHg7XG5cdHdpZHRoOiAxMDAlO1xuXHRtaW4td2lkdGg6IDJweDtcblx0dGV4dC1hbGlnbjogY2VudGVyO1xuXHRkaXNwbGF5OiBmbGV4O1xuXHRmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuXHRhbGlnbi1pdGVtczogY2VudGVyO1xuXHRqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcblx0cGFkZGluZzogMTVweCAwO1xufVxuXG4uZm9vdGVyLWJhY2stdG8tdG9wID4gZGl2IHtcblx0Y29sb3I6ICNmZmY7XG5cdGZvbnQtc2l6ZTogMTNweDtcblx0bGluZS1oZWlnaHQ6IDE5cHg7XG5cdGZvbnQtd2VpZ2h0OiA3MDA7XG59XG5cbi5mb290ZXItYmFjay10by10b3A6aG92ZXIge1xuXHRiYWNrZ3JvdW5kOiByZ2JhKDU1LCA3MSwgOTAsIDAuOSk7XG59XG5cbi5mb290ZXItdG9wIHtcblx0YmFja2dyb3VuZC1jb2xvcjogIzIzMmYzZTtcblx0Y29sb3I6ICNmZmY7XG5cdGhlaWdodDogYXV0bztcblx0d2lkdGg6IDEwMCU7XG5cdGRpc3BsYXk6IGZsZXg7XG5cdGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2Vlbjtcblx0cGFkZGluZzogM3JlbSAxMHJlbTtcbn1cblxuLmZvb3Rlci10b3Atc2VjdGlvbiA+IHAge1xuXHRjb2xvcjogI2ZmZjtcblx0Zm9udC1zaXplOiAxLjFyZW07XG5cdGZvbnQtd2VpZ2h0OiA3MDA7XG5cdG1hcmdpbjogNnB4IDAgMTRweCAwO1xuXHR3aGl0ZS1zcGFjZTogbm93cmFwO1xufVxuXG4uZm9vdGVyLXRvcC1saW5rID4gYSB7XG5cdGNvbG9yOiAjZGRkO1xuXHR0ZXh0LWRlY29yYXRpb246IG5vbmU7XG5cdGZvbnQtc2l6ZTogMTRweDtcblx0bWFyZ2luOiAwIDAgMTBweDtcblx0bGluZS1oZWlnaHQ6IDFyZW07XG5cdGZvbnQtd2VpZ2h0OiA2MDA7XG59XG5cbi5mb290ZXItYm90dG9tIHtcblx0YmFja2dyb3VuZC1jb2xvcjogIzEzMWEyMjtcblx0cGFkZGluZzogMzBweCAwO1xuXHQvKiBtYXJnaW46IDMwcHggMCAwOyAqL1xuXHR3aWR0aDogMTAwJTtcbn1cblxuLmZvb3Rlci1ib3R0b20tbGlua3Mge1xuXHRkaXNwbGF5OiBncmlkO1xuXHRncmlkLXRlbXBsYXRlLWNvbHVtbnM6IDFmciAxZnIgMWZyIDFmciAxZnIgMWZyO1xuXHRwYWRkaW5nOiAzcmVtIDEwcmVtO1xuXHRqdXN0aWZ5LWl0ZW1zOiBjZW50ZXI7XG59XG5cbi5mb290ZXItYm90dG9tLWxpbmsge1xuXHRjb2xvcjogI2RkZDtcblx0ZGlzcGxheTogZmxleDtcblx0ZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcblx0Zm9udC1zaXplOiAxMnB4ICFpbXBvcnRhbnQ7XG5cdHBhZGRpbmc6IDAgMC43NWVtO1xuXHR2ZXJ0aWNhbC1hbGlnbjogdG9wO1xuXHR0ZXh0LWFsaWduOiBsZWZ0O1xuXHRsaW5lLWhlaWdodDogMTE1JTtcblx0bWFyZ2luLWJvdHRvbTogMXJlbTtcblx0bWF4LXdpZHRoOiAxMDBweDtcblx0Y3Vyc29yOiBwb2ludGVyO1xufVxuXG51bC5mb290ZXItZW5kLWxpbmtzIHtcblx0d2lkdGg6IDEwMCU7XG5cdGRpc3BsYXk6IGZsZXg7XG5cdGp1c3RpZnktY29udGVudDogY2VudGVyO1xuXHRhbGlnbi1pdGVtczogY2VudGVyO1xufVxuXG5saS5mb290ZXItZW5kLWxpbmsge1xuXHRjb2xvcjogI2ZmZjtcblx0cGFkZGluZzogMCAxcmVtO1xuXHR0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbmxpLmZvb3Rlci1lbmQtbGluayA+IGEge1xuXHRjb2xvcjogI2ZmZjtcblx0dGV4dC1kZWNvcmF0aW9uOiBub25lO1xuXHRmb250LXNpemU6IDEycHg7XG59XG5cbi8qIE1lZGlhIFF1ZXJpZXMgKi9cbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDEyMDBweCkge1xuXHQuZm9vdGVyLXRvcCB7XG5cdFx0ZGlzcGxheTogZ3JpZDtcblx0XHRncmlkLXRlbXBsYXRlLWNvbHVtbnM6IHJlcGVhdCgyLCBtaW5tYXgoMjUwcHgsIDFmcikpO1xuXHR9XG5cblx0LmZvb3Rlci10b3Atc2VjdGlvbiB7XG5cdFx0bWFyZ2luOiAycmVtO1xuXHR9XG5cblx0LmZvb3Rlci1ib3R0b20tbGlua3Mge1xuXHRcdGdyaWQtdGVtcGxhdGUtY29sdW1uczogMWZyIDFmciAxZnIgMWZyIDFmcjtcbiAgICAgICAgbWFyZ2luOiBhdXRvO1xuXHR9XG5cblx0LmZvb3Rlci1ib3R0b20tbGluayB7XG5cdFx0cGFkZGluZy1ib3R0b206IDFyZW07XG5cdH1cbn1cbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDgwMHB4KSB7XG5cdC5mb290ZXItdG9wIHtcblx0XHRwYWRkaW5nOiAwO1xuXHR9XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+	/* dark shades of primary color*/
+	--clr-primary-1: hsl(21, 91%, 17%);
+	--clr-primary-2: hsl(21, 84%, 25%);
+	--clr-primary-3: hsl(21, 81%, 29%);
+	--clr-primary-4: hsl(21, 77%, 34%);
+	--clr-primary-5: hsl(21, 62%, 45%);
+	--clr-primary-6: hsl(21, 57%, 50%);
+	--clr-primary-7: hsl(21, 65%, 59%);
+	--clr-primary-8: hsl(21, 80%, 74%);
+	--clr-primary-9: hsl(21, 94%, 87%);
+	--clr-primary-10: hsl(21, 100%, 94%);
+	/* darkest grey - used for headings */
+	--clr-grey-1: hsl(209, 61%, 16%);
+	--clr-grey-2: hsl(211, 39%, 23%);
+	--clr-grey-3: hsl(209, 34%, 30%);
+	--clr-grey-4: hsl(209, 28%, 39%);
+	/* grey used for paragraphs */
+	--clr-grey-5: hsl(210, 22%, 49%);
+	--clr-grey-6: hsl(209, 23%, 60%);
+	--clr-grey-7: hsl(211, 27%, 70%);
+	--clr-grey-8: hsl(210, 31%, 80%);
+	--clr-grey-9: hsl(212, 33%, 89%);
+	--clr-grey-10: hsl(210, 36%, 96%);
+	--clr-white: #fff;
+	--clr-red-dark: hsl(360, 67%, 44%);
+	--clr-red-light: hsl(360, 71%, 66%);
+	--clr-green-dark: hsl(125, 67%, 44%);
+	--clr-green-light: hsl(125, 71%, 66%);
+	--clr-black: #222;
+	--transition: all 0.3s linear;
+	--spacing: 0.1rem;
+	--radius: 0.25rem;
+	--light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	--dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	--max-width: 1170px;
+	--fixed-width: 620px;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	background: var(--clr-grey-10);
+	color: var(--clr-grey-1);
+	line-height: 1.5;
+	font-size: 0.875rem;
+}
+ul {
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4 {
+	letter-spacing: var(--spacing);
+	text-transform: capitalize;
+	line-height: 1.25;
+	margin-bottom: 0.75rem;
+}
+h1 {
+	font-size: 3rem;
+}
+h2 {
+	font-size: 2rem;
+}
+h3 {
+	font-size: 1.25rem;
+}
+h4 {
+	font-size: 0.875rem;
+}
+p {
+	margin-bottom: 1.25rem;
+	color: var(--clr-grey-5);
+}
+@media screen and (min-width: 800px) {
+	h1 {
+		font-size: 4rem;
+	}
+	h2 {
+		font-size: 2.5rem;
+	}
+	h3 {
+		font-size: 1.75rem;
+	}
+	h4 {
+		font-size: 1rem;
+	}
+	body {
+		font-size: 1rem;
+	}
+	h1,
+	h2,
+	h3,
+	h4 {
+		line-height: 1;
+	}
+}
+/*  global classes */
+
+/* section */
+
+section {
+	display: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	margin-bottom: -350px;
+	/* width: 100vw;
+   margin: 5rem auto; 
+  max-width: var(--max-width); */
+}
+
+/* @media screen and (min-width: 992px) {
+  .section {
+    width: 95vw;
+  }
+} */
+/*
+=============== 
+Slider
+===============
+*/
+
+.slide-img {
+	object-fit: contain;
+	position: relative;
+	background: transparent;
+  -webkit-mask-size: 10%;
+          mask-size: 10%;
+	-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+	        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.section-center {
+	margin: 0 auto;
+	width: 100%;
+	height: 600px;
+	max-width: 1500px;
+	text-align: center;
+	position: relative;
+	display: flex;
+	overflow: hidden;
+	align-items: center;
+	justify-content: center;
+}
+
+.prev,
+.next {
+	position: absolute;
+	top: 20%;
+	transform: translateX(-5%);
+	/* background: var(--clr-grey-5);
+  color: var(--clr-white); */
+	background: transparent;
+	width: 1.25rem;
+	height: 1.25rem;
+	display: grid;
+	place-items: center;
+	border-color: transparent;
+	font-size: 1rem;
+	border-radius: var(--radius);
+	cursor: pointer;
+	transition: var(--transition);
+}
+
+.prev {
+	left: 20px;
+	z-index: 100;
+}
+.next {
+	right: 20px;
+	z-index: 100;
+}
+
+svg.prev-icon-alt {
+	position: absolute;
+	top: 0%;
+	left: 2px;
+	color: #fff;
+	z-index: -1;
+	opacity: 0.7;
+}
+svg.next-icon-alt {
+	position: absolute;
+	top: 0%;
+	right: -26px;
+	color: #fff;
+	z-index: -1;
+	opacity: 0.7;
+}
+
+svg.prev-icon,
+svg.next-icon,
+svg.prev-icon-alt,
+svg.next-icon-alt {
+	width: 44px;
+	height: 72px;
+}
+
+/* @media (min-width: 800px) {
+  .text {
+    max-width: 45em;
+  }
+  .prev,
+  .next {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+  }
+} */
+article {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	/* width: 100vw; */
+	height: 100%;
+	opacity: 0;
+	transition: var(--transition);
+}
+article.activeSlide {
+	opacity: 1;
+	transform: translateX(0);
+}
+article.lastSlide {
+	transform: translateX(-200%);
+}
+article.nextSlide {
+	transform: translateX(100%);
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvQ29tcG9uZW50cy9Ib21lL0Nhcm91c2VsL0Nhcm91c2VsLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7OztDQUlDOztBQUVEO0NBQ0MsZ0NBQWdDO0NBQ2hDLGtDQUFrQztDQUNsQyxrQ0FBa0M7Q0FDbEMsa0NBQWtDO0NBQ2xDLGtDQUFrQztDQUNsQyxrQ0FBa0M7Q0FDbEMsa0NBQWtDO0NBQ2xDLGtDQUFrQztDQUNsQyxrQ0FBa0M7Q0FDbEMsa0NBQWtDO0NBQ2xDLG9DQUFvQztDQUNwQyxxQ0FBcUM7Q0FDckMsZ0NBQWdDO0NBQ2hDLGdDQUFnQztDQUNoQyxnQ0FBZ0M7Q0FDaEMsZ0NBQWdDO0NBQ2hDLDZCQUE2QjtDQUM3QixnQ0FBZ0M7Q0FDaEMsZ0NBQWdDO0NBQ2hDLGdDQUFnQztDQUNoQyxnQ0FBZ0M7Q0FDaEMsZ0NBQWdDO0NBQ2hDLGlDQUFpQztDQUNqQyxpQkFBaUI7Q0FDakIsa0NBQWtDO0NBQ2xDLG1DQUFtQztDQUNuQyxvQ0FBb0M7Q0FDcEMscUNBQXFDO0NBQ3JDLGlCQUFpQjtDQUNqQiw2QkFBNkI7Q0FDN0IsaUJBQWlCO0NBQ2pCLGlCQUFpQjtDQUNqQiw2Q0FBNkM7Q0FDN0MsNENBQTRDO0NBQzVDLG1CQUFtQjtDQUNuQixvQkFBb0I7QUFDckI7QUFDQTs7OztDQUlDOztBQUVEOzs7Q0FHQyxTQUFTO0NBQ1QsVUFBVTtDQUNWLHNCQUFzQjtBQUN2QjtBQUNBO0NBQ0M7OERBQzZEO0NBQzdELDhCQUE4QjtDQUM5Qix3QkFBd0I7Q0FDeEIsZ0JBQWdCO0NBQ2hCLG1CQUFtQjtBQUNwQjtBQUNBO0NBQ0MscUJBQXFCO0FBQ3RCO0FBQ0E7Q0FDQyxxQkFBcUI7QUFDdEI7QUFDQTs7OztDQUlDLDhCQUE4QjtDQUM5QiwwQkFBMEI7Q0FDMUIsaUJBQWlCO0NBQ2pCLHNCQUFzQjtBQUN2QjtBQUNBO0NBQ0MsZUFBZTtBQUNoQjtBQUNBO0NBQ0MsZUFBZTtBQUNoQjtBQUNBO0NBQ0Msa0JBQWtCO0FBQ25CO0FBQ0E7Q0FDQyxtQkFBbUI7QUFDcEI7QUFDQTtDQUNDLHNCQUFzQjtDQUN0Qix3QkFBd0I7QUFDekI7QUFDQTtDQUNDO0VBQ0MsZUFBZTtDQUNoQjtDQUNBO0VBQ0MsaUJBQWlCO0NBQ2xCO0NBQ0E7RUFDQyxrQkFBa0I7Q0FDbkI7Q0FDQTtFQUNDLGVBQWU7Q0FDaEI7Q0FDQTtFQUNDLGVBQWU7Q0FDaEI7Q0FDQTs7OztFQUlDLGNBQWM7Q0FDZjtBQUNEO0FBQ0Esb0JBQW9COztBQUVwQixZQUFZOztBQUVaO0NBQ0MsaUJBQWlCO0NBQ2pCLFFBQVE7Q0FDUixPQUFPO0NBQ1AsTUFBTTtDQUNOLHFCQUFxQjtDQUNyQjs7Z0NBRStCO0FBQ2hDOztBQUVBOzs7O0dBSUc7QUFDSDs7OztDQUlDOztBQUVEO0NBQ0MsbUJBQW1CO0NBQ25CLGtCQUFrQjtDQUNsQix1QkFBdUI7RUFDdEIsc0JBQWM7VUFBZCxjQUFjO0NBQ2Ysa0ZBQTBFO1NBQTFFLDBFQUEwRTtBQUMzRTs7QUFFQTtDQUNDLGNBQWM7Q0FDZCxXQUFXO0NBQ1gsYUFBYTtDQUNiLGlCQUFpQjtDQUNqQixrQkFBa0I7Q0FDbEIsa0JBQWtCO0NBQ2xCLGFBQWE7Q0FDYixnQkFBZ0I7Q0FDaEIsbUJBQW1CO0NBQ25CLHVCQUF1QjtBQUN4Qjs7QUFFQTs7Q0FFQyxrQkFBa0I7Q0FDbEIsUUFBUTtDQUNSLDBCQUEwQjtDQUMxQjs0QkFDMkI7Q0FDM0IsdUJBQXVCO0NBQ3ZCLGNBQWM7Q0FDZCxlQUFlO0NBQ2YsYUFBYTtDQUNiLG1CQUFtQjtDQUNuQix5QkFBeUI7Q0FDekIsZUFBZTtDQUNmLDRCQUE0QjtDQUM1QixlQUFlO0NBQ2YsNkJBQTZCO0FBQzlCOztBQUVBO0NBQ0MsVUFBVTtDQUNWLFlBQVk7QUFDYjtBQUNBO0NBQ0MsV0FBVztDQUNYLFlBQVk7QUFDYjs7QUFFQTtDQUNDLGtCQUFrQjtDQUNsQixPQUFPO0NBQ1AsU0FBUztDQUNULFdBQVc7Q0FDWCxXQUFXO0NBQ1gsWUFBWTtBQUNiO0FBQ0E7Q0FDQyxrQkFBa0I7Q0FDbEIsT0FBTztDQUNQLFlBQVk7Q0FDWixXQUFXO0NBQ1gsV0FBVztDQUNYLFlBQVk7QUFDYjs7QUFFQTs7OztDQUlDLFdBQVc7Q0FDWCxZQUFZO0FBQ2I7O0FBRUE7Ozs7Ozs7Ozs7R0FVRztBQUNIO0NBQ0Msa0JBQWtCO0NBQ2xCLE1BQU07Q0FDTixPQUFPO0NBQ1AsUUFBUTtDQUNSLGtCQUFrQjtDQUNsQixZQUFZO0NBQ1osVUFBVTtDQUNWLDZCQUE2QjtBQUM5QjtBQUNBO0NBQ0MsVUFBVTtDQUNWLHdCQUF3QjtBQUN6QjtBQUNBO0NBQ0MsNEJBQTRCO0FBQzdCO0FBQ0E7Q0FDQywyQkFBMkI7QUFDNUIiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxuPT09PT09PT09PT09PT09IFxuVmFyaWFibGVzXG49PT09PT09PT09PT09PT1cbiovXG5cbjpyb290IHtcblx0LyogZGFyayBzaGFkZXMgb2YgcHJpbWFyeSBjb2xvciovXG5cdC0tY2xyLXByaW1hcnktMTogaHNsKDIxLCA5MSUsIDE3JSk7XG5cdC0tY2xyLXByaW1hcnktMjogaHNsKDIxLCA4NCUsIDI1JSk7XG5cdC0tY2xyLXByaW1hcnktMzogaHNsKDIxLCA4MSUsIDI5JSk7XG5cdC0tY2xyLXByaW1hcnktNDogaHNsKDIxLCA3NyUsIDM0JSk7XG5cdC0tY2xyLXByaW1hcnktNTogaHNsKDIxLCA2MiUsIDQ1JSk7XG5cdC0tY2xyLXByaW1hcnktNjogaHNsKDIxLCA1NyUsIDUwJSk7XG5cdC0tY2xyLXByaW1hcnktNzogaHNsKDIxLCA2NSUsIDU5JSk7XG5cdC0tY2xyLXByaW1hcnktODogaHNsKDIxLCA4MCUsIDc0JSk7XG5cdC0tY2xyLXByaW1hcnktOTogaHNsKDIxLCA5NCUsIDg3JSk7XG5cdC0tY2xyLXByaW1hcnktMTA6IGhzbCgyMSwgMTAwJSwgOTQlKTtcblx0LyogZGFya2VzdCBncmV5IC0gdXNlZCBmb3IgaGVhZGluZ3MgKi9cblx0LS1jbHItZ3JleS0xOiBoc2woMjA5LCA2MSUsIDE2JSk7XG5cdC0tY2xyLWdyZXktMjogaHNsKDIxMSwgMzklLCAyMyUpO1xuXHQtLWNsci1ncmV5LTM6IGhzbCgyMDksIDM0JSwgMzAlKTtcblx0LS1jbHItZ3JleS00OiBoc2woMjA5LCAyOCUsIDM5JSk7XG5cdC8qIGdyZXkgdXNlZCBmb3IgcGFyYWdyYXBocyAqL1xuXHQtLWNsci1ncmV5LTU6IGhzbCgyMTAsIDIyJSwgNDklKTtcblx0LS1jbHItZ3JleS02OiBoc2woMjA5LCAyMyUsIDYwJSk7XG5cdC0tY2xyLWdyZXktNzogaHNsKDIxMSwgMjclLCA3MCUpO1xuXHQtLWNsci1ncmV5LTg6IGhzbCgyMTAsIDMxJSwgODAlKTtcblx0LS1jbHItZ3JleS05OiBoc2woMjEyLCAzMyUsIDg5JSk7XG5cdC0tY2xyLWdyZXktMTA6IGhzbCgyMTAsIDM2JSwgOTYlKTtcblx0LS1jbHItd2hpdGU6ICNmZmY7XG5cdC0tY2xyLXJlZC1kYXJrOiBoc2woMzYwLCA2NyUsIDQ0JSk7XG5cdC0tY2xyLXJlZC1saWdodDogaHNsKDM2MCwgNzElLCA2NiUpO1xuXHQtLWNsci1ncmVlbi1kYXJrOiBoc2woMTI1LCA2NyUsIDQ0JSk7XG5cdC0tY2xyLWdyZWVuLWxpZ2h0OiBoc2woMTI1LCA3MSUsIDY2JSk7XG5cdC0tY2xyLWJsYWNrOiAjMjIyO1xuXHQtLXRyYW5zaXRpb246IGFsbCAwLjNzIGxpbmVhcjtcblx0LS1zcGFjaW5nOiAwLjFyZW07XG5cdC0tcmFkaXVzOiAwLjI1cmVtO1xuXHQtLWxpZ2h0LXNoYWRvdzogMCA1cHggMTVweCByZ2JhKDAsIDAsIDAsIDAuMSk7XG5cdC0tZGFyay1zaGFkb3c6IDAgNXB4IDE1cHggcmdiYSgwLCAwLCAwLCAwLjIpO1xuXHQtLW1heC13aWR0aDogMTE3MHB4O1xuXHQtLWZpeGVkLXdpZHRoOiA2MjBweDtcbn1cbi8qXG49PT09PT09PT09PT09PT0gXG5HbG9iYWwgU3R5bGVzXG49PT09PT09PT09PT09PT1cbiovXG5cbiosXG46OmFmdGVyLFxuOjpiZWZvcmUge1xuXHRtYXJnaW46IDA7XG5cdHBhZGRpbmc6IDA7XG5cdGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG59XG5ib2R5IHtcblx0Zm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgUm9ib3RvLCBPeHlnZW4sXG5cdFx0VWJ1bnR1LCBDYW50YXJlbGwsICdPcGVuIFNhbnMnLCAnSGVsdmV0aWNhIE5ldWUnLCBzYW5zLXNlcmlmO1xuXHRiYWNrZ3JvdW5kOiB2YXIoLS1jbHItZ3JleS0xMCk7XG5cdGNvbG9yOiB2YXIoLS1jbHItZ3JleS0xKTtcblx0bGluZS1oZWlnaHQ6IDEuNTtcblx0Zm9udC1zaXplOiAwLjg3NXJlbTtcbn1cbnVsIHtcblx0bGlzdC1zdHlsZS10eXBlOiBub25lO1xufVxuYSB7XG5cdHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbn1cbmgxLFxuaDIsXG5oMyxcbmg0IHtcblx0bGV0dGVyLXNwYWNpbmc6IHZhcigtLXNwYWNpbmcpO1xuXHR0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcblx0bGluZS1oZWlnaHQ6IDEuMjU7XG5cdG1hcmdpbi1ib3R0b206IDAuNzVyZW07XG59XG5oMSB7XG5cdGZvbnQtc2l6ZTogM3JlbTtcbn1cbmgyIHtcblx0Zm9udC1zaXplOiAycmVtO1xufVxuaDMge1xuXHRmb250LXNpemU6IDEuMjVyZW07XG59XG5oNCB7XG5cdGZvbnQtc2l6ZTogMC44NzVyZW07XG59XG5wIHtcblx0bWFyZ2luLWJvdHRvbTogMS4yNXJlbTtcblx0Y29sb3I6IHZhcigtLWNsci1ncmV5LTUpO1xufVxuQG1lZGlhIHNjcmVlbiBhbmQgKG1pbi13aWR0aDogODAwcHgpIHtcblx0aDEge1xuXHRcdGZvbnQtc2l6ZTogNHJlbTtcblx0fVxuXHRoMiB7XG5cdFx0Zm9udC1zaXplOiAyLjVyZW07XG5cdH1cblx0aDMge1xuXHRcdGZvbnQtc2l6ZTogMS43NXJlbTtcblx0fVxuXHRoNCB7XG5cdFx0Zm9udC1zaXplOiAxcmVtO1xuXHR9XG5cdGJvZHkge1xuXHRcdGZvbnQtc2l6ZTogMXJlbTtcblx0fVxuXHRoMSxcblx0aDIsXG5cdGgzLFxuXHRoNCB7XG5cdFx0bGluZS1oZWlnaHQ6IDE7XG5cdH1cbn1cbi8qICBnbG9iYWwgY2xhc3NlcyAqL1xuXG4vKiBzZWN0aW9uICovXG5cbnNlY3Rpb24ge1xuXHRkaXNwbGF5OiBhYnNvbHV0ZTtcblx0cmlnaHQ6IDA7XG5cdGxlZnQ6IDA7XG5cdHRvcDogMDtcblx0bWFyZ2luLWJvdHRvbTogLTM1MHB4O1xuXHQvKiB3aWR0aDogMTAwdnc7XG4gICBtYXJnaW46IDVyZW0gYXV0bzsgXG4gIG1heC13aWR0aDogdmFyKC0tbWF4LXdpZHRoKTsgKi9cbn1cblxuLyogQG1lZGlhIHNjcmVlbiBhbmQgKG1pbi13aWR0aDogOTkycHgpIHtcbiAgLnNlY3Rpb24ge1xuICAgIHdpZHRoOiA5NXZ3O1xuICB9XG59ICovXG4vKlxuPT09PT09PT09PT09PT09IFxuU2xpZGVyXG49PT09PT09PT09PT09PT1cbiovXG5cbi5zbGlkZS1pbWcge1xuXHRvYmplY3QtZml0OiBjb250YWluO1xuXHRwb3NpdGlvbjogcmVsYXRpdmU7XG5cdGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xuICBtYXNrLXNpemU6IDEwJTtcblx0bWFzay1pbWFnZTogbGluZWFyLWdyYWRpZW50KHRvIGJvdHRvbSwgcmdiYSgwLCAwLCAwLCAxKSwgcmdiYSgwLCAwLCAwLCAwKSk7XG59XG5cbi5zZWN0aW9uLWNlbnRlciB7XG5cdG1hcmdpbjogMCBhdXRvO1xuXHR3aWR0aDogMTAwJTtcblx0aGVpZ2h0OiA2MDBweDtcblx0bWF4LXdpZHRoOiAxNTAwcHg7XG5cdHRleHQtYWxpZ246IGNlbnRlcjtcblx0cG9zaXRpb246IHJlbGF0aXZlO1xuXHRkaXNwbGF5OiBmbGV4O1xuXHRvdmVyZmxvdzogaGlkZGVuO1xuXHRhbGlnbi1pdGVtczogY2VudGVyO1xuXHRqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbn1cblxuLnByZXYsXG4ubmV4dCB7XG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcblx0dG9wOiAyMCU7XG5cdHRyYW5zZm9ybTogdHJhbnNsYXRlWCgtNSUpO1xuXHQvKiBiYWNrZ3JvdW5kOiB2YXIoLS1jbHItZ3JleS01KTtcbiAgY29sb3I6IHZhcigtLWNsci13aGl0ZSk7ICovXG5cdGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xuXHR3aWR0aDogMS4yNXJlbTtcblx0aGVpZ2h0OiAxLjI1cmVtO1xuXHRkaXNwbGF5OiBncmlkO1xuXHRwbGFjZS1pdGVtczogY2VudGVyO1xuXHRib3JkZXItY29sb3I6IHRyYW5zcGFyZW50O1xuXHRmb250LXNpemU6IDFyZW07XG5cdGJvcmRlci1yYWRpdXM6IHZhcigtLXJhZGl1cyk7XG5cdGN1cnNvcjogcG9pbnRlcjtcblx0dHJhbnNpdGlvbjogdmFyKC0tdHJhbnNpdGlvbik7XG59XG5cbi5wcmV2IHtcblx0bGVmdDogMjBweDtcblx0ei1pbmRleDogMTAwO1xufVxuLm5leHQge1xuXHRyaWdodDogMjBweDtcblx0ei1pbmRleDogMTAwO1xufVxuXG5zdmcucHJldi1pY29uLWFsdCB7XG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcblx0dG9wOiAwJTtcblx0bGVmdDogMnB4O1xuXHRjb2xvcjogI2ZmZjtcblx0ei1pbmRleDogLTE7XG5cdG9wYWNpdHk6IDAuNztcbn1cbnN2Zy5uZXh0LWljb24tYWx0IHtcblx0cG9zaXRpb246IGFic29sdXRlO1xuXHR0b3A6IDAlO1xuXHRyaWdodDogLTI2cHg7XG5cdGNvbG9yOiAjZmZmO1xuXHR6LWluZGV4OiAtMTtcblx0b3BhY2l0eTogMC43O1xufVxuXG5zdmcucHJldi1pY29uLFxuc3ZnLm5leHQtaWNvbixcbnN2Zy5wcmV2LWljb24tYWx0LFxuc3ZnLm5leHQtaWNvbi1hbHQge1xuXHR3aWR0aDogNDRweDtcblx0aGVpZ2h0OiA3MnB4O1xufVxuXG4vKiBAbWVkaWEgKG1pbi13aWR0aDogODAwcHgpIHtcbiAgLnRleHQge1xuICAgIG1heC13aWR0aDogNDVlbTtcbiAgfVxuICAucHJldixcbiAgLm5leHQge1xuICAgIHdpZHRoOiAycmVtO1xuICAgIGhlaWdodDogMnJlbTtcbiAgICBmb250LXNpemU6IDEuNXJlbTtcbiAgfVxufSAqL1xuYXJ0aWNsZSB7XG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcblx0dG9wOiAwO1xuXHRsZWZ0OiAwO1xuXHRyaWdodDogMDtcblx0Lyogd2lkdGg6IDEwMHZ3OyAqL1xuXHRoZWlnaHQ6IDEwMCU7XG5cdG9wYWNpdHk6IDA7XG5cdHRyYW5zaXRpb246IHZhcigtLXRyYW5zaXRpb24pO1xufVxuYXJ0aWNsZS5hY3RpdmVTbGlkZSB7XG5cdG9wYWNpdHk6IDE7XG5cdHRyYW5zZm9ybTogdHJhbnNsYXRlWCgwKTtcbn1cbmFydGljbGUubGFzdFNsaWRlIHtcblx0dHJhbnNmb3JtOiB0cmFuc2xhdGVYKC0yMDAlKTtcbn1cbmFydGljbGUubmV4dFNsaWRlIHtcblx0dHJhbnNmb3JtOiB0cmFuc2xhdGVYKDEwMCUpO1xufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>.product-row {
+	display: flex;
+	z-index: 1;
+	margin: 0 5px;
+}
+
+.product {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	margin: 10px 10px;
+	padding: 20px 0;
+	width: 100%;
+	min-width: 130px;
+	background-color: white;
+	z-index: 1;
+	/* height: 450px; */
+}
+
+.product-price {
+	margin-top: 5px;
+	display: flex;
+}
+
+.products-info-top {
+	width: auto;
+	cursor: pointer;
+	margin-bottom: 2rem;
+	padding: 0 1rem;
+}
+.product-info {
+	word-break: normal;
+	width: auto;
+}
+
+.product-title {
+	height: 20px;
+}
+
+.rating-icon {
+	border-color: #a88734 #9c7e31 #846a29;
+	color: #ebc463;
+}
+
+
+.product-img {
+	/* background: blue; */
+	max-width: 200px;
+	width: 100%;
+	height: 200px;
+	max-height: 200px;
+	object-fit: contain;
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+
+.product > button {
+	background: #f0c14b;
+	border: 1px solid;
+	margin-top: 10px;
+	border-color: #a88734 #9c7e31 #846a29;
+	color: #111;
+	padding: 5px;
+	cursor: pointer;
+	width: 150px;
+}
+
+@media screen and (max-width: 1200px) {
+	.product-title {
+		height: 70px;
+	}
+}
+@media screen and (max-width: 800px) {
+	svg.rating-icon {
+		height: 16px;
+		width: 15px;
+	}
+	.product > button {
+		width: 100px;
+	}
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvQ29tcG9uZW50cy9Ib21lL1Byb2R1Y3RSb3cvUHJvZHVjdFJvdy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Q0FDQyxhQUFhO0NBQ2IsVUFBVTtDQUNWLGFBQWE7QUFDZDs7QUFFQTtDQUNDLGFBQWE7Q0FDYixzQkFBc0I7Q0FDdEIsbUJBQW1CO0NBQ25CLHlCQUF5QjtDQUN6QixpQkFBaUI7Q0FDakIsZUFBZTtDQUNmLFdBQVc7Q0FDWCxnQkFBZ0I7Q0FDaEIsdUJBQXVCO0NBQ3ZCLFVBQVU7Q0FDVixtQkFBbUI7QUFDcEI7O0FBRUE7Q0FDQyxlQUFlO0NBQ2YsYUFBYTtBQUNkOztBQUVBO0NBQ0MsV0FBVztDQUNYLGVBQWU7Q0FDZixtQkFBbUI7Q0FDbkIsZUFBZTtBQUNoQjtBQUNBO0NBQ0Msa0JBQWtCO0NBQ2xCLFdBQVc7QUFDWjs7QUFFQTtDQUNDLFlBQVk7QUFDYjs7QUFFQTtDQUNDLHFDQUFxQztDQUNyQyxjQUFjO0FBQ2Y7OztBQUdBO0NBQ0Msc0JBQXNCO0NBQ3RCLGdCQUFnQjtDQUNoQixXQUFXO0NBQ1gsYUFBYTtDQUNiLGlCQUFpQjtDQUNqQixtQkFBbUI7Q0FDbkIsbUJBQW1CO0NBQ25CLGVBQWU7QUFDaEI7O0FBRUE7Q0FDQyxtQkFBbUI7Q0FDbkIsaUJBQWlCO0NBQ2pCLGdCQUFnQjtDQUNoQixxQ0FBcUM7Q0FDckMsV0FBVztDQUNYLFlBQVk7Q0FDWixlQUFlO0NBQ2YsWUFBWTtBQUNiOztBQUVBO0NBQ0M7RUFDQyxZQUFZO0NBQ2I7QUFDRDtBQUNBO0NBQ0M7RUFDQyxZQUFZO0VBQ1osV0FBVztDQUNaO0NBQ0E7RUFDQyxZQUFZO0NBQ2I7QUFDRCIsInNvdXJjZXNDb250ZW50IjpbIi5wcm9kdWN0LXJvdyB7XG5cdGRpc3BsYXk6IGZsZXg7XG5cdHotaW5kZXg6IDE7XG5cdG1hcmdpbjogMCA1cHg7XG59XG5cbi5wcm9kdWN0IHtcblx0ZGlzcGxheTogZmxleDtcblx0ZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcblx0YWxpZ24taXRlbXM6IGNlbnRlcjtcblx0anVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcblx0bWFyZ2luOiAxMHB4IDEwcHg7XG5cdHBhZGRpbmc6IDIwcHggMDtcblx0d2lkdGg6IDEwMCU7XG5cdG1pbi13aWR0aDogMTMwcHg7XG5cdGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xuXHR6LWluZGV4OiAxO1xuXHQvKiBoZWlnaHQ6IDQ1MHB4OyAqL1xufVxuXG4ucHJvZHVjdC1wcmljZSB7XG5cdG1hcmdpbi10b3A6IDVweDtcblx0ZGlzcGxheTogZmxleDtcbn1cblxuLnByb2R1Y3RzLWluZm8tdG9wIHtcblx0d2lkdGg6IGF1dG87XG5cdGN1cnNvcjogcG9pbnRlcjtcblx0bWFyZ2luLWJvdHRvbTogMnJlbTtcblx0cGFkZGluZzogMCAxcmVtO1xufVxuLnByb2R1Y3QtaW5mbyB7XG5cdHdvcmQtYnJlYWs6IG5vcm1hbDtcblx0d2lkdGg6IGF1dG87XG59XG5cbi5wcm9kdWN0LXRpdGxlIHtcblx0aGVpZ2h0OiAyMHB4O1xufVxuXG4ucmF0aW5nLWljb24ge1xuXHRib3JkZXItY29sb3I6ICNhODg3MzQgIzljN2UzMSAjODQ2YTI5O1xuXHRjb2xvcjogI2ViYzQ2Mztcbn1cblxuXG4ucHJvZHVjdC1pbWcge1xuXHQvKiBiYWNrZ3JvdW5kOiBibHVlOyAqL1xuXHRtYXgtd2lkdGg6IDIwMHB4O1xuXHR3aWR0aDogMTAwJTtcblx0aGVpZ2h0OiAyMDBweDtcblx0bWF4LWhlaWdodDogMjAwcHg7XG5cdG9iamVjdC1maXQ6IGNvbnRhaW47XG5cdG1hcmdpbi1ib3R0b206IDE1cHg7XG5cdGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLnByb2R1Y3QgPiBidXR0b24ge1xuXHRiYWNrZ3JvdW5kOiAjZjBjMTRiO1xuXHRib3JkZXI6IDFweCBzb2xpZDtcblx0bWFyZ2luLXRvcDogMTBweDtcblx0Ym9yZGVyLWNvbG9yOiAjYTg4NzM0ICM5YzdlMzEgIzg0NmEyOTtcblx0Y29sb3I6ICMxMTE7XG5cdHBhZGRpbmc6IDVweDtcblx0Y3Vyc29yOiBwb2ludGVyO1xuXHR3aWR0aDogMTUwcHg7XG59XG5cbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDEyMDBweCkge1xuXHQucHJvZHVjdC10aXRsZSB7XG5cdFx0aGVpZ2h0OiA3MHB4O1xuXHR9XG59XG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA4MDBweCkge1xuXHRzdmcucmF0aW5nLWljb24ge1xuXHRcdGhlaWdodDogMTZweDtcblx0XHR3aWR0aDogMTVweDtcblx0fVxuXHQucHJvZHVjdCA+IGJ1dHRvbiB7XG5cdFx0d2lkdGg6IDEwMHB4O1xuXHR9XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>.home {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
+	max-width: 1500px;
+	padding: 0px;
+}
+
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvUGFnZXMvSG9tZVBhZ2UvSG9tZVBhZ2UuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0NBQ0MsYUFBYTtDQUNiLHNCQUFzQjtDQUN0Qix1QkFBdUI7Q0FDdkIsY0FBYztDQUNkLGlCQUFpQjtDQUNqQixZQUFZO0FBQ2IiLCJzb3VyY2VzQ29udGVudCI6WyIuaG9tZSB7XG5cdGRpc3BsYXk6IGZsZXg7XG5cdGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG5cdGp1c3RpZnktY29udGVudDogY2VudGVyO1xuXHRtYXJnaW46IDAgYXV0bztcblx0bWF4LXdpZHRoOiAxNTAwcHg7XG5cdHBhZGRpbmc6IDBweDtcbn1cblxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style data-emotion="css" data-s="">.css-i4bv87-MuiSvgIcon-root{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:1em;height:1em;display:inline-block;fill:currentColor;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;-webkit-transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;transition:fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;font-size:1.5rem;}</style><style type="text/css">.c1-ui-state-hover {background-color:yellow !important; padding:5px !important }</style><script charset="utf-8" src="./React App_files/main.50b1943d5010553389f6.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.c7b438f5888a3fb426f7.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.188be749ae337b2892ec.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.bfbb9cfe5d0ccf30dece.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.5d8a70fedbbcc789eec8.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.4ddbb4b7b106af8c67f6.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.1ae36f62fe56458fb4b2.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.47e8cb6671f56149fec6.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.694d5a223fa7e1af7d18.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.c7c65a2f5d5134b7e609.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.5e6cb3095fc181330e64.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.2013687be645945d2425.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.0f4286325aad1301935a.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.42516d932541edbb0b1a.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.dcb0f45b464d868be5ec.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.01191e34b96105633664.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.92c22f9b44b6ea688fea.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.a3345092454de8c78231.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.dbeaf69887b7f9b33c11.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.ffe572c1c0e8ac490515.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.3df5c3ab517ba43986e4.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.e54cfa17581844ca30e6.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.77889b4c34ebfb802119.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.aa5b63b02bc845043b7d.hot-update.js"></script><script charset="utf-8" src="./React App_files/main.97839cc3c7362b4e5b1b.hot-update.js"></script></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="app"><div class="header"><div class="header-top"><img src="./React App_files/amazon_PNG11.png" alt="amazon logo" class="header-logo"><div class="header-option"><span class="header-option-one">Deliver to</span><span class="header-option-two">Los Angeles, CA</span></div><div class="header-search"><input class="header-search-input" type="text"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium header-search-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="SearchIcon"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></div><div class="header-nav"><div class="header-option"><span class="header-option-one">Hello Guest</span><span></span><span class="undefined header-option-two">Sign in</span></div><div class="header-option"><span class="header-option-one">Returns</span><span></span><span class="undefined header-option-two">&amp; Orders</span></div><div class="header-option"><span class="header-option-one">Your</span><span></span><span class="undefined header-option-two">Prime</span></div><div class="header-option-icon"><span class="header-option-one"></span><span><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="ShoppingBasketIcon"><path d="m17.21 9-4.38-6.56c-.19-.28-.51-.42-.83-.42-.32 0-.64.14-.83.43L6.79 9H2c-.55 0-1 .45-1 1 0 .09.01.18.04.27l2.54 9.27c.23.84 1 1.46 1.92 1.46h13c.92 0 1.69-.62 1.93-1.46l2.54-9.27L23 10c0-.55-.45-1-1-1h-4.79zM9 9l3-4.4L15 9H9zm3 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"></path></svg></span><span class="header-basket-count header-option-two">0</span></div></div></div><div class="header-bottom"><div class="header-categories"><div class="header-category-item"><div class="header-menu-icon"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="MenuIcon"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></div><div class="category">All</div></div><div class="header-category-item"><div class="header-menu-icon"></div><div class="category">Deals</div></div><div class="header-category-item"><div class="header-menu-icon"></div><div class="category">Best Seller</div></div><div class="header-category-item"><div class="header-menu-icon"></div><div class="category">Beauty and Personal Care</div></div><div class="header-category-item"><div class="header-menu-icon"></div><div class="category">Customer Service</div></div></div></div></div><div class="home"><div class="home-container"><section class="section"><div class="section-center"><button class="prev"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium prev-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="ArrowBackIosIcon"><path d="M11.67 3.87 9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium prev-icon-alt css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="ArrowBackIosIcon"><path d="M11.67 3.87 9.9 2.1 0 12l9.9 9.9 1.77-1.77L3.54 12z"></path></svg></button><article class="nextSlide"><img src="./React App_files/51665626711_98201833e4_h.jpg" alt="slide 0" class="slide-img"><div class="img-mask"></div></article><article class="lastSlide"><img src="./React App_files/51669066163_0790ac88d9_h.jpg" alt="slide 1" class="slide-img"><div class="img-mask"></div></article><article class="activeSlide"><img src="./React App_files/51666505870_35e8511cc1_h.jpg" alt="slide 2" class="slide-img"><div class="img-mask"></div></article><article class="nextSlide"><img src="./React App_files/51670354873_6f4fde3181_h.jpg" alt="slide 3" class="slide-img"><div class="img-mask"></div></article><button class="next"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium next-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="ArrowForwardIosIcon"><path d="M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium next-icon-alt css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="ArrowForwardIosIcon"><path d="M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"></path></svg></button></div></section><div class="product-row"><div class="product"><div class="products-info-top"><p class="product-info product-title">The Lean Startup</p><p class="product-price product-info"><small>$</small><strong>10.99</strong></p><div class="product-rating product-info"><p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></p></div></div><img src="./React App_files/51668773925_fc21fd03c7_w.jpg" alt="" class="product-img"><button>Add to Cart</button></div><div class="product"><div class="products-info-top"><p class="product-info product-title">Simple Modern Summit Insulated Water Bottle</p><p class="product-price product-info"><small>$</small><strong>21.99</strong></p><div class="product-rating product-info"><p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></p></div></div><img src="./React App_files/81D+6VaqSiS._AC_SX679_.jpg" alt="" class="product-img"><button>Add to Cart</button></div><div class="product"><div class="products-info-top"><p class="product-info product-title">Gaiam Essentials Thick Yoga Mat Fitness</p><p class="product-price product-info"><small>$</small><strong>17.99</strong></p><div class="product-rating product-info"><p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></p></div></div><img src="./React App_files/81k53EsViVL._AC_SX679_.jpg" alt="" class="product-img"><button>Add to Cart</button></div></div><div class="product-row"><div class="product"><div class="products-info-top"><p class="product-info product-title">Bose Noise Cancelling Headphones 700</p><p class="product-price product-info"><small>$</small><strong>379</strong></p><div class="product-rating product-info"><p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></p></div></div><img src="./React App_files/51ntWa1Q0sL._AC_SX679_.jpg" alt="" class="product-img"><button>Add to Cart</button></div><div class="product"><div class="products-info-top"><p class="product-info product-title">KitchenAid KSM3316XCU Artisan Mini Stand Mixers, 3.5 quart</p><p class="product-price product-info"><small>$</small><strong>239</strong></p><div class="product-rating product-info"><p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></p></div></div><img src="./React App_files/81CkFbzgzLL._AC_SX679_.jpg" alt="" class="product-img"><button>Add to Cart</button></div></div><div class="product-row"><div class="product"><div class="products-info-top"><p class="product-info product-title">ChocZero White Chocolate Chips</p><p class="product-price product-info"><small>$</small><strong>8.99</strong></p><div class="product-rating product-info"><p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></p></div></div><img src="./React App_files/71QDZG6tFrL._SX679_.jpg" alt="" class="product-img"><button>Add to Cart</button></div><div class="product"><div class="products-info-top"><p class="product-info product-title">Fitbit Luxe Fitness and Wellness Tracker</p><p class="product-price product-info"><small>$</small><strong>129</strong></p><div class="product-rating product-info"><p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></p></div></div><img src="./React App_files/61zX3Mzqw-L._AC_SX679_.jpg" alt="" class="product-img"><button>Add to Cart</button></div><div class="product"><div class="products-info-top"><p class="product-info product-title">Amazon Basics Dog and Puppy Pads, 5 Layer</p><p class="product-price product-info"><small>$</small><strong>29</strong></p><div class="product-rating product-info"><p><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium rating-icon css-i4bv87-MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" data-testid="StarIcon"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg></p></div></div><img src="./React App_files/81vkislowDL._AC_SX466_.jpg" alt="" class="product-img"><button>Add to Cart</button></div></div></div></div><div class="footer-container"><a class="footer-back-to-top" href="http://localhost:3000/"><div>Back to the top</div></a><div class="footer-top"><ul class="footer-top-section"><p>Get To Know Us</p><li class="footer-top-link"><a href="http://localhost:3000/">Careers</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Blog</a></li><li class="footer-top-link"><a href="http://localhost:3000/">About Amazon</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Sustainability</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Press Center</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Investor Relations</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Amazon Devices</a></li></ul><ul class="footer-top-section"><p>Make Money with Us</p><li class="footer-top-link"><a href="http://localhost:3000/">Sell Products On Amazon</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Sell Apps on Amazon</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Become an Affiliate</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Become a Delivery Driver</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Start a package delivery</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Advertise Your Products</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Self-Publish with Us</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Host an Amazon Hub</a></li><li class="footer-top-link"><a href="http://localhost:3000/">See More Ways to Make Money</a></li></ul><ul class="footer-top-section"><p>Amazon Payment Products</p><li class="footer-top-link"><a href="http://localhost:3000/">Amazon Reards Visa Signature Cards</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Amazon.com Store Card</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Amazon Secured Card</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Amazon Business Card</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Amazon Business Line of Credit</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Shop with Points</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Credit Card marketplace</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Reload Your Balance</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Amazon Currency Converter</a></li></ul><ul class="footer-top-section"><p>Let Us Help You</p><li class="footer-top-link"><a href="http://localhost:3000/">Amazon and COVID-19</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Your Account</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Your Orders</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Shipping Rates &amp; Policies</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Amazon Prime</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Returns &amp; Replacements</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Manage Your Content and Devices</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Amazon Assitant</a></li><li class="footer-top-link"><a href="http://localhost:3000/">Help</a></li></ul></div><div class="footer-bottom"><div class="footer-bottom-links"><div class="footer-bottom-link"><h5>Amazon Music</h5><small>Stream millions of songs</small></div><div class="footer-bottom-link"><h5>Amazon Advertising</h5><small>Find, attract, and engage customers</small></div><div class="footer-bottom-link"><h5>Amazon Drive</h5><small>Cloud storage from Amazon</small></div><div class="footer-bottom-link"><h5>6pm</h5><small>Score deals on fashion brands</small></div><div class="footer-bottom-link"><h5>AbeBooks</h5><small>Books, art &amp; collecribles</small></div><div class="footer-bottom-link"><h5>ACX</h5><small>Audiobook Publishing Made Easy</small></div><div class="footer-bottom-link"><h5>Alexa</h5><small>Actionable Analytics for the Web</small></div><div class="footer-bottom-link"><h5>Sell on Amazon</h5><small>Start a Selling Account</small></div><div class="footer-bottom-link"><h5>Amazon Business</h5><small>Everything for Your Business</small></div><div class="footer-bottom-link"><h5>Amazon Fresh</h5><small>Groceries &amp; More Right To Your Door</small></div><div class="footer-bottom-link"><h5>AmazonGlobal</h5><small>Ship Orders Internationally</small></div><div class="footer-bottom-link"><h5>Home Services</h5><small>Experienced Pros Happiness Guarantee</small></div><div class="footer-bottom-link"><h5>Amzon Ignite</h5><small>Sell your original Digital Educational Resources</small></div><div class="footer-bottom-link"><h5>Amazon Web Services</h5><small>Scalable Cloud Computing Services</small></div><div class="footer-bottom-link"><h5>Audible</h5><small>Listen to Books &amp; Original Audio Performances</small></div><div class="footer-bottom-link"><h5>Book Depository</h5><small>Books With Free Delivery Worldwide</small></div><div class="footer-bottom-link"><h5>Box Office Mojo</h5><small>Find Movie Box Office Data</small></div><div class="footer-bottom-link"><h5>ComiXology</h5><small>Thousands of Digital Comics</small></div><div class="footer-bottom-link"><h5>DPReview</h5><small>Digital Photography	</small></div><div class="footer-bottom-link"><h5>East Dance</h5><small>Designer Men's Fashion</small></div><div class="footer-bottom-link"><h5>Fabric</h5><small>Sewing, Quilting, and Knitting</small></div><div class="footer-bottom-link"><h5>Goodreads</h5><small>Book Reviews &amp; recommendations</small></div><div class="footer-bottom-link"><h5>IMDB</h5><small>Movies, TV &amp; Celebrities</small></div><div class="footer-bottom-link"><h5>IMDBPro</h5><small>Get Info Entertainment Professionals Need</small></div><div class="footer-bottom-link"><h5>Kindle Direct Publishing</h5><small>Indie Digital &amp; Print Publishing Made Easy</small></div><div class="footer-bottom-link"><h5>Amazon Photos</h5><small>Unlimited Photo Storage Free With Prime	</small></div><div class="footer-bottom-link"><h5>Prime Video Direct</h5><small>Video Distribution Made Easy</small></div><div class="footer-bottom-link"><h5>Shopbop</h5><small>Designer Fahion Brands</small></div><div class="footer-bottom-link"><h5>Amazon Warehouse</h5><small>Great Deals on Quality Used Products</small></div><div class="footer-bottom-link"><h5>WholeFoods Market</h5><small>America’s Healthiest Grocery Store</small></div><div class="footer-bottom-link"><h5>Woot!</h5><small>Deals and Shenanigans</small></div><div class="footer-bottom-link"><h5>Zappos</h5><small>Shoes &amp; Clothing</small></div><div class="footer-bottom-link"><h5>Ring</h5><small>Smart Home Security Systems</small></div><div class="footer-bottom-link"><h5>eero WiFi</h5><small>Stream 4k Video in Every Room</small></div><div class="footer-bottom-link"><h5>Blink</h5><small>Smart Security for Every Home</small></div><div class="footer-bottom-link"><h5>Neighbors App</h5><small>Real-Time Crime &amp; Safety Alerts</small></div><div class="footer-bottom-link"><h5>Amazon Subscription Boxes</h5><small>Top subscription boxes – right to your door</small></div><div class="footer-bottom-link"><h5>PillPack</h5><small>Pharmacy Simplified</small></div><div class="footer-bottom-link"><h5>Amazon Renewed</h5><small>Like-new products you can trust</small></div><div class="footer-bottom-link"><h5>Amazon Second Chance</h5><small>Pass it on, trade it in, give it a second life</small></div></div><ul class="footer-end-links"><li class="footer-end-link"><a href="http://localhost:3000/">Conditions of Use</a></li><li class="footer-end-link"><a href="http://localhost:3000/">Privacy Notice</a></li><li class="footer-end-link"><a href="http://localhost:3000/">Interest-Based Ads</a></li><li class="footer-end-link"><a href="http://localhost:3000/"> © 1996-2021, Amazon.com, Inc. or its affiliates</a></li></ul></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./React App_files/bundle.js"></script><script src="./React App_files/vendors_main.chunk.js"></script><script src="./React App_files/main.chunk.js"></script>
+
+</body></html>
